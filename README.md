@@ -1,4 +1,23 @@
-Design System for KCN.gg
+<br />
+<p align="center">
+  <a href="https://liandry.kcn.gg" target="_blank">
+    <img src="https://i.ibb.co/0p7WF7j6/liandrykcn.png" alt="Logo" width="130" />
+  </a>
+
+<h1 align="center">
+Liandry KCN Design System
+</h1>
+
+<p align="center">
+Home of the KCN.gg Design System, a collection of reusable components and utilities for building modern web applications.
+<p>
+
+<p align="center">
+<a href="https://www.npmjs.com/package/@kcngg/liandry" target="__blank"><img src="https://img.shields.io/npm/v/@kcngg/liandry?style=flat&colorA=0487f3&colorB=0a2355" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/@kcngg/liandry" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@kcngg/liandry?flat&colorA=0487f3&colorB=0a2355"></a>
+</p>
+
+<hr />
 
 ## Roadmap 
 - [ ] Tooltip
