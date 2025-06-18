@@ -13,6 +13,6 @@ const { label } = defineProps<{
 </script>
 
 <template>
-  <button>{{ label }}</button>
+  <button class="bg-red text-xl">{{ label }}</button>
 </template>
 
