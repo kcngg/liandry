@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "esnext",
     "lib": ["es2023"],
     "moduleDetection": "force",
+    "baseUrl": ".",
     "module": "preserve",
     "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/Components/*": ["src/components/*"]
+    },
     "resolveJsonModule": true,
     "types": ["node"],
     "strict": true,
@@ -15,11 +19,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true,
-    "paths": {
-      "@/*": ["src/*"],
-      "@/Components/*": ["src/components/*"],
-    }
+    "skipLibCheck": true
   },
   "include": ["src"]
 }

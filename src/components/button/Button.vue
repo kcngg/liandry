@@ -8,11 +8,10 @@
 //
 // const { variant, loading, size, disabled } = defineProps<ButtonProps>();
 const { label } = defineProps<{
-  label: string;
-}>();
+  label: string
+}>()
 </script>
 
 <template>
   <button class="bg-red text-xl">{{ label }}</button>
 </template>
-

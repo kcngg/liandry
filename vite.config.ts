@@ -1,7 +1,7 @@
 import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
 import UnoCSS from 'unocss/vite'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   root: './playground',
