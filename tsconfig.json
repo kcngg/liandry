@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "esnext",
     "lib": ["es2023"],
     "moduleDetection": "force",
@@ -14,7 +15,11 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@/Components/*": ["src/components/*"],
+    }
   },
   "include": ["src"]
 }
