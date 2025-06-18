@@ -39,7 +39,8 @@
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "serve-storybook": "serve storybook-static"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -49,6 +50,7 @@
     "@sxzz/eslint-config": "^7.0.3",
     "@sxzz/prettier-config": "^2.2.1",
     "@types/node": "^22.15.32",
+    "@unocss/cli": "^66.2.3",
     "@unocss/eslint-plugin": "^66.2.3",
     "@unocss/reset": "^66.2.3",
     "@vitejs/plugin-vue": "^5.2.4",
