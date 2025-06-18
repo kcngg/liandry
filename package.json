@@ -5,13 +5,13 @@
   "description": "Base design system for KCN.gg applications.",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://github.com/kcnetwork/liandry#readme",
+  "homepage": "https://github.com/kcngg/liandry#readme",
   "bugs": {
-    "url": "https://github.com/kcnetwork/liandry/issues"
+    "url": "https://github.com/kcngg/liandry/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kcnetwork/liandry.git"
+    "url": "git+https://github.com/kcngg/liandry.git"
   },
   "author": "@npldevfr",
   "files": [
