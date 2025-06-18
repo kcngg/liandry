@@ -14,7 +14,7 @@ Home of the KCN.gg Design System, a collection of reusable components and utilit
 
 <p align="center">
 <a href="https://www.npmjs.com/package/@kcngg/liandry" target="__blank"><img src="https://img.shields.io/npm/v/@kcngg/liandry?style=flat&colorA=0487f3&colorB=0a2355" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/@kcngg/liandry" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@kcngg/liandry?flat&colorA=0487f3&colorB=0a2355"></a>
+<a href="https://github.com/kcngg/liandry/actions" target="__blank"><img src="https://img.shields.io/github/actions/workflow/status/kcngg/liandry/unit-test.yml?style=flat&colorA=0487f3&colorB=0a2355" alt="GitHub Actions"></a>
 </p>
 
 <hr />
