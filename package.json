@@ -37,12 +37,15 @@
     "typecheck": "vue-tsc --noEmit",
     "format": "prettier --cache --write .",
     "release": "bumpp && pnpm publish",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@storybook/vue3-vite": "^9.0.11",
     "@sxzz/eslint-config": "^7.0.3",
     "@sxzz/prettier-config": "^2.2.1",
     "@types/node": "^22.15.32",
@@ -50,8 +53,10 @@
     "@vue/test-utils": "^2.4.6",
     "bumpp": "^10.1.1",
     "eslint": "^9.29.0",
+    "eslint-plugin-storybook": "^9.0.11",
     "happy-dom": "^18.0.1",
     "prettier": "^3.5.3",
+    "storybook": "^9.0.11",
     "tsdown": "^0.12.7",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
