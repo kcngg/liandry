@@ -52,6 +52,8 @@
     "@sxzz/prettier-config": "^2.2.1",
     "@types/node": "^22.15.32",
     "@unocss/cli": "^66.2.3",
+    "@unocss/core": "^66.2.3",
+    "@unocss/preset-uno": "^66.2.3",
     "@unocss/eslint-plugin": "^66.2.3",
     "@unocss/reset": "^66.2.3",
     "@vitejs/plugin-vue": "^5.2.4",

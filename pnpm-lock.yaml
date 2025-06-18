@@ -23,9 +23,15 @@ importers:
       '@unocss/cli':
         specifier: ^66.2.3
         version: 66.2.3
+      '@unocss/core':
+        specifier: ^66.2.3
+        version: 66.2.3
       '@unocss/eslint-plugin':
         specifier: ^66.2.3
         version: 66.2.3(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      '@unocss/preset-uno':
+        specifier: ^66.2.3
+        version: 66.2.3
       '@unocss/reset':
         specifier: ^66.2.3
         version: 66.2.3
