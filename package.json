@@ -22,7 +22,8 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./unocss.css": "./dist/unocss.css"
   },
   "publishConfig": {
     "access": "public"
