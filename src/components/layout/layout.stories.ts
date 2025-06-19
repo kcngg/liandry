@@ -11,7 +11,7 @@ const meta: Meta<any> = {
   parameters: {
     docs: {
       description: {
-        component: 'Composants de layout pour organiser et structurer le contenu.',
+        component: 'Layout components for organizing and structuring content.',
       },
     },
   },
@@ -25,7 +25,7 @@ export const StackExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Le composant Stack pour organiser les éléments en ligne ou en colonne avec flexbox.',
+        story: 'Stack component for organizing elements in rows or columns using flexbox.',
       },
     },
   },
@@ -33,36 +33,36 @@ export const StackExamples: Story = {
     components: { Stack, Button, Section },
     template: `
       <Stack gap="3rem">
-        <Section title="Direction Column (défaut)" :level="3">
+        <Section title="Column Direction (default)" :level="3">
           <Stack gap="1rem">
-            <Button color="primary">Premier</Button>
-            <Button color="secondary">Deuxième</Button>
-            <Button color="danger">Troisième</Button>
+            <Button color="primary">First</Button>
+            <Button color="secondary">Second</Button>
+            <Button color="danger">Third</Button>
           </Stack>
         </Section>
 
-        <Section title="Direction Row" :level="3">
+        <Section title="Row Direction" :level="3">
           <Stack direction="row" gap="1rem">
-            <Button color="primary">Premier</Button>
-            <Button color="secondary">Deuxième</Button>
-            <Button color="danger">Troisième</Button>
+            <Button color="primary">First</Button>
+            <Button color="secondary">Second</Button>
+            <Button color="danger">Third</Button>
           </Stack>
         </Section>
 
-        <Section title="Avec Wrap" :level="3">
+        <Section title="With Wrap" :level="3">
           <Stack direction="row" gap="1rem" :wrap="true">
-            <Button color="primary">Un</Button>
-            <Button color="primary">Deux</Button>
-            <Button color="primary">Trois</Button>
-            <Button color="primary">Quatre</Button>
-            <Button color="primary">Cinq</Button>
+            <Button color="primary">One</Button>
+            <Button color="primary">Two</Button>
+            <Button color="primary">Three</Button>
+            <Button color="primary">Four</Button>
+            <Button color="primary">Five</Button>
             <Button color="primary">Six</Button>
-            <Button color="primary">Sept</Button>
-            <Button color="primary">Huit</Button>
+            <Button color="primary">Seven</Button>
+            <Button color="primary">Eight</Button>
           </Stack>
         </Section>
 
-        <Section title="Alignement Center" :level="3">
+        <Section title="Center Alignment" :level="3">
           <Stack direction="row" gap="1rem" align="center" justify="center">
             <Button color="primary" size="xs">XS</Button>
             <Button color="primary" size="md">MD</Button>
@@ -78,7 +78,7 @@ export const GridExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Le composant Grid pour créer des layouts en grille avec CSS Grid.',
+        story: 'Grid component for creating grid layouts using CSS Grid.',
       },
     },
   },
@@ -86,7 +86,7 @@ export const GridExamples: Story = {
     components: { Grid, Button, Section, Stack },
     template: `
       <Stack gap="3rem">
-        <Section title="Grille 3 colonnes" :level="3">
+        <Section title="3 Column Grid" :level="3">
           <Grid :columns="3" gap="1rem">
             <Button color="primary">1</Button>
             <Button color="secondary">2</Button>
@@ -97,7 +97,7 @@ export const GridExamples: Story = {
           </Grid>
         </Section>
 
-        <Section title="Grille responsive" :level="3">
+        <Section title="Responsive Grid" :level="3">
           <Grid columns="repeat(auto-fit, minmax(200px, 1fr))" gap="1rem">
             <Button color="primary">Responsive 1</Button>
             <Button color="secondary">Responsive 2</Button>
@@ -106,12 +106,12 @@ export const GridExamples: Story = {
           </Grid>
         </Section>
 
-        <Section title="Grille avec gaps différents" :level="3">
+        <Section title="Grid with Different Gaps" :level="3">
           <Grid :columns="2" column-gap="2rem" row-gap="0.5rem">
-            <Button color="primary">Gap Col 2rem</Button>
-            <Button color="secondary">Gap Row 0.5rem</Button>
-            <Button color="danger">Gap Col 2rem</Button>
-            <Button color="primary">Gap Row 0.5rem</Button>
+            <Button color="primary">Col Gap 2rem</Button>
+            <Button color="secondary">Row Gap 0.5rem</Button>
+            <Button color="danger">Col Gap 2rem</Button>
+            <Button color="primary">Row Gap 0.5rem</Button>
           </Grid>
         </Section>
       </Stack>
@@ -123,7 +123,7 @@ export const SectionExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Le composant Section pour organiser le contenu avec des titres hiérarchiques.',
+        story: 'Section component for organizing content with hierarchical titles.',
       },
     },
   },
@@ -131,35 +131,35 @@ export const SectionExamples: Story = {
     components: { Section, Button, Stack },
     template: `
       <Stack gap="2rem">
-        <Section title="Titre H1" :level="1" subtitle="Sous-titre optionnel">
-          <p>Contenu de la section avec un titre H1.</p>
+        <Section title="H1 Title" :level="1" subtitle="Optional subtitle">
+          <p>Section content with an H1 title.</p>
         </Section>
 
-        <Section title="Titre H2" :level="2">
+        <Section title="H2 Title" :level="2">
           <Stack direction="row" gap="1rem">
             <Button color="primary">Action 1</Button>
             <Button color="secondary">Action 2</Button>
           </Stack>
         </Section>
 
-        <Section title="Titre H3" :level="3" subtitle="Avec sous-titre">
-          <p>Section avec titre H3 et sous-titre.</p>
+        <Section title="H3 Title" :level="3" subtitle="With subtitle">
+          <p>Section with H3 title and subtitle.</p>
         </Section>
 
-        <Section title="Titre H4" :level="4">
-          <p>Section avec titre H4.</p>
+        <Section title="H4 Title" :level="4">
+          <p>Section with H4 title.</p>
         </Section>
 
-        <Section title="Titre H5" :level="5">
-          <p>Section avec titre H5.</p>
+        <Section title="H5 Title" :level="5">
+          <p>Section with H5 title.</p>
         </Section>
 
-        <Section title="Titre H6" :level="6">
-          <p>Section avec titre H6.</p>
+        <Section title="H6 Title" :level="6">
+          <p>Section with H6 title.</p>
         </Section>
 
-        <Section title="Espacement personnalisé" :level="3" spacing="2rem">
-          <p>Cette section a un espacement de 2rem entre le titre et le contenu.</p>
+        <Section title="Custom Spacing" :level="3" spacing="2rem">
+          <p>This section has 2rem spacing between title and content.</p>
         </Section>
       </Stack>
     `,
@@ -170,7 +170,7 @@ export const ContainerExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Le composant Container pour limiter la largeur du contenu et le centrer.',
+        story: 'Container component for limiting content width and centering.',
       },
     },
   },
@@ -179,40 +179,40 @@ export const ContainerExamples: Story = {
     template: `
       <Stack gap="3rem">
         <Section title="Container XS (480px)" :level="3">
-          <Container size="xs" style="background: #f3f4f6; border: 1px dashed #d1d5db;">
+          <Container size="xs" class="bg-white/5 border border-white/10 rounded-lg p-4">
             <Stack direction="row" gap="1rem" justify="center">
-              <Button color="primary">Contenu XS</Button>
+              <Button color="primary">XS Content</Button>
             </Stack>
           </Container>
         </Section>
 
         <Section title="Container MD (768px)" :level="3">
-          <Container size="md" style="background: #f3f4f6; border: 1px dashed #d1d5db;">
+          <Container size="md" class="bg-white/5 border border-white/10 rounded-lg p-4">
             <Stack direction="row" gap="1rem" justify="center">
-              <Button color="secondary">Contenu MD</Button>
+              <Button color="secondary">MD Content</Button>
             </Stack>
           </Container>
         </Section>
 
-        <Section title="Container LG (1024px) - Défaut" :level="3">
-          <Container style="background: #f3f4f6; border: 1px dashed #d1d5db;">
+        <Section title="Container LG (1024px) - Default" :level="3">
+          <Container class="bg-white/5 border border-white/10 rounded-lg p-4">
             <Stack direction="row" gap="1rem" justify="center">
-              <Button color="danger">Contenu LG</Button>
+              <Button color="danger">LG Content</Button>
             </Stack>
           </Container>
         </Section>
 
         <Section title="Container XL (1280px)" :level="3">
-          <Container size="xl" style="background: #f3f4f6; border: 1px dashed #d1d5db;">
+          <Container size="xl" class="bg-white/5 border border-white/10 rounded-lg p-4">
             <Stack direction="row" gap="1rem" justify="center">
-              <Button color="primary">Contenu XL</Button>
+              <Button color="primary">XL Content</Button>
             </Stack>
           </Container>
         </Section>
 
-        <Section title="Container sans centrage" :level="3">
-          <Container :center="false" style="background: #f3f4f6; border: 1px dashed #d1d5db;">
-            <Button color="secondary">Non centré</Button>
+        <Section title="Container without centering" :level="3">
+          <Container :center="false" class="bg-white/5 border border-white/10 rounded-lg p-4">
+            <Button color="secondary">Not centered</Button>
           </Container>
         </Section>
       </Stack>
@@ -224,7 +224,7 @@ export const CombinedLayout: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Exemple combinant tous les composants layout pour créer une interface complète.',
+        story: 'Example combining all layout components to create a complete interface.',
       },
     },
   },
@@ -233,55 +233,65 @@ export const CombinedLayout: Story = {
     template: `
       <Container size="xl">
         <Stack gap="4rem">
-          <Section title="Interface Complète" :level="1" subtitle="Démonstration des composants layout combinés">
-            <p>Cet exemple montre comment combiner tous les composants layout pour créer une interface cohérente.</p>
+          <Section title="Complete Interface" :level="1" subtitle="Demonstration of combined layout components">
+            <p>This example shows how to combine all layout components to create a cohesive interface.</p>
           </Section>
 
-          <Section title="Actions Principales" :level="2">
+          <Section title="Primary Actions" :level="2">
             <Stack direction="row" gap="1rem" :wrap="true">
-              <Button color="primary" size="lg">Action Principale</Button>
-              <Button color="secondary" variant="outline" size="lg">Action Secondaire</Button>
-              <Button color="danger" variant="ghost" size="lg">Supprimer</Button>
+              <Button color="primary" size="lg">Primary Action</Button>
+              <Button color="secondary" variant="outline" size="lg">Secondary Action</Button>
+              <Button color="danger" variant="ghost" size="lg">Delete</Button>
             </Stack>
           </Section>
 
-          <Section title="Grille de Cartes" :level="2">
-            <Grid columns="repeat(auto-fit, minmax(250px, 1fr))" gap="1.5rem">
-              <div style="padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+          <Section title="Card Grid" :level="2">
+            <Grid columns="repeat(auto-fit, minmax(280px, 1fr))" gap="1.5rem">
+              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors">
                 <Stack gap="1rem">
-                  <h4 style="margin: 0; font-weight: 600;">Carte 1</h4>
-                  <p style="margin: 0; color: #6b7280;">Description de la première carte.</p>
-                  <Button color="primary" size="sm">Voir plus</Button>
+                  <h4 class="m-0 font-semibold text-lg">Card 1</h4>
+                  <p class="m-0 text-white/70 text-sm leading-relaxed">Description of the first card with some additional content to show text wrapping.</p>
+                  <Button color="primary" size="sm">Learn More</Button>
                 </Stack>
               </div>
               
-              <div style="padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors">
                 <Stack gap="1rem">
-                  <h4 style="margin: 0; font-weight: 600;">Carte 2</h4>
-                  <p style="margin: 0; color: #6b7280;">Description de la deuxième carte.</p>
-                  <Button color="secondary" size="sm">Voir plus</Button>
+                  <h4 class="m-0 font-semibold text-lg">Card 2</h4>
+                  <p class="m-0 text-white/70 text-sm leading-relaxed">Description of the second card with some additional content to show text wrapping.</p>
+                  <Button color="secondary" size="sm">Learn More</Button>
                 </Stack>
               </div>
               
-              <div style="padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors">
                 <Stack gap="1rem">
-                  <h4 style="margin: 0; font-weight: 600;">Carte 3</h4>
-                  <p style="margin: 0; color: #6b7280;">Description de la troisième carte.</p>
-                  <Button color="danger" size="sm">Voir plus</Button>
+                  <h4 class="m-0 font-semibold text-lg">Card 3</h4>
+                  <p class="m-0 text-white/70 text-sm leading-relaxed">Description of the third card with some additional content to show text wrapping.</p>
+                  <Button color="danger" size="sm">Learn More</Button>
+                </Stack>
+              </div>
+
+              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors">
+                <Stack gap="1rem">
+                  <h4 class="m-0 font-semibold text-lg">Card 4</h4>
+                  <p class="m-0 text-white/70 text-sm leading-relaxed">Description of the fourth card with some additional content to show text wrapping.</p>
+                  <Button color="primary" variant="outline" size="sm">Learn More</Button>
                 </Stack>
               </div>
             </Grid>
           </Section>
 
           <Section title="Footer" :level="3">
-            <Stack direction="row" gap="2rem" justify="between" align="center" :wrap="true">
-              <Stack direction="row" gap="1rem">
-                <Button variant="ghost" size="sm">À propos</Button>
-                <Button variant="ghost" size="sm">Contact</Button>
-                <Button variant="ghost" size="sm">Aide</Button>
+            <div class="bg-white/5 border border-white/10 rounded-lg p-6">
+              <Stack direction="row" gap="2rem" justify="between" align="center" :wrap="true">
+                <Stack direction="row" gap="1rem">
+                  <Button variant="ghost" size="sm">About</Button>
+                  <Button variant="ghost" size="sm">Contact</Button>
+                  <Button variant="ghost" size="sm">Help</Button>
+                </Stack>
+                <p class="m-0 text-white/60 text-sm">© 2024 Liandry UI</p>
               </Stack>
-              <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">© 2024 Liandry UI</p>
-            </Stack>
+            </div>
           </Section>
         </Stack>
       </Container>
