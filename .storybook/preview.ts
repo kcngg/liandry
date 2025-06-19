@@ -42,6 +42,7 @@ styleElement.textContent = darkStyles
 document.head.append(styleElement)
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {
