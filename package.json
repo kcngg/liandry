@@ -17,13 +17,17 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
     "./package.json": "./package.json",
-    "./unocss.css": "./dist/unocss.css"
+    "./style.css": "./dist/liandry.css"
   },
   "publishConfig": {
     "access": "public"
@@ -31,8 +35,8 @@
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "pnpm run lint --fix",
-    "build": "tsdown",
-    "dev": "tsdown --watch",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist",
+    "dev": "vite build --watch",
     "play": "vite",
     "test": "vitest",
     "typecheck": "vue-tsc --noEmit",
@@ -71,7 +75,6 @@
     "prettier": "^3.5.3",
     "storybook": "^9.0.11",
     "tailwind-variants": "^1.0.0",
-    "tsdown": "^0.12.7",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "unocss": "^66.2.3",
