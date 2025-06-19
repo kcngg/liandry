@@ -158,11 +158,13 @@ const getLoaderSize = (size: string) => {
     <!-- Show loader if isLoading is true -->
     <LoaderCircle
       v-if="isLoading"
-      class="animate-spin text-white"
+      class="animate-spin"
       :class="[
         getLoaderSize(size),
         {
           'mr-2': !asIcon,
+          'text-white': variant === 'filled',
+          'text-current': variant === 'outline' || variant === 'ghost',
         },
       ]"
     />
