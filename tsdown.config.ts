@@ -8,5 +8,6 @@ export default defineConfig([
     platform: 'neutral',
     plugins: [Vue({ isProduction: true }), unocssRollupPlugin()],
     dts: { vue: true },
+    external: ['lucide-vue-next'],
   },
 ])

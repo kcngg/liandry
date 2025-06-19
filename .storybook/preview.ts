@@ -14,7 +14,7 @@ const darkStyles = `
   }
   
   .sb-show-main {
-    background: #0f0f23 !important;
+    background: #171717 !important;
   }
   
   /* Force dark background for canvas */
@@ -24,14 +24,14 @@ const darkStyles = `
   
   /* Dark theme for docs */
   .sbdocs-content {
-    background-color: #0f0f23 !important;
+    background-color: #171717 !important;
     color: #ffffff !important;
   }
   
   /* Dark theme for code blocks */
   .sbdocs-content pre,
   .sbdocs-content code {
-    background-color: #1a1a2e !important;
+    background-color: #171717 !important;
     color: #ffffff !important;
   }
 `
@@ -39,7 +39,7 @@ const darkStyles = `
 // Inject styles
 const styleElement = document.createElement('style')
 styleElement.textContent = darkStyles
-document.head.appendChild(styleElement)
+document.head.append(styleElement)
 
 const preview: Preview = {
   parameters: {
