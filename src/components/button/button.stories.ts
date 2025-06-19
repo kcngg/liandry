@@ -168,6 +168,60 @@ export const AllVariants: Story = {
   }),
 }
 
+export const LoadingState: Story = {
+  args: {
+    isLoading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Un bouton dans un état de chargement. Utilisé pour indiquer que l’action est en cours.',
+      },
+    },
+  },
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Button :variant="args.variant" :size="args.size" :isLoading="args.isLoading">
+        {{ args.default }}
+      </Button>
+    `,
+  }),
+}
+
+export const IconButton: Story = {
+  args: {
+    variant: 'primary',
+    size: 'md',
+    asIcon: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Un bouton avec une icône. Utilisé pour les actions qui nécessitent une représentation visuelle.',
+      },
+    },
+  },
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Button :variant="args.variant" :size="args.size">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+      </Button>
+    `,
+  }),
+}
+
 export const SizeMatrix: Story = {
   parameters: {
     docs: {

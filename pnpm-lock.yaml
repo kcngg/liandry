@@ -60,6 +60,9 @@ importers:
       happy-dom:
         specifier: ^18.0.1
         version: 18.0.1
+      lucide-vue-next:
+        specifier: ^0.518.0
+        version: 0.518.0(vue@3.5.16(typescript@5.8.3))
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -2131,6 +2134,11 @@ packages:
   lru-cache@8.0.5:
     resolution: {integrity: sha512-MhWWlVnuab1RG5/zMRRcVGXZLCXrZTgfwMikgzCegsPnG62yDQo5JnqKkrK4jO5iKqDAZGItAqN5CtKBCBWRUA==}
     engines: {node: '>=16.14'}
+
+  lucide-vue-next@0.518.0:
+    resolution: {integrity: sha512-x4Vb3rMtz7y389aSGa0icMlm+X9vcO0tJBcXpvzi0K1NQn1IUUoXH4ENWQoLB/ZWtpkL1r6MAiIL+ycFPBFP8Q==}
+    peerDependencies:
+      vue: '>=3.0.1'
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -5225,6 +5233,10 @@ snapshots:
   lru-cache@10.4.3: {}
 
   lru-cache@8.0.5: {}
+
+  lucide-vue-next@0.518.0(vue@3.5.16(typescript@5.8.3)):
+    dependencies:
+      vue: 3.5.16(typescript@5.8.3)
 
   lz-string@1.5.0: {}
 
