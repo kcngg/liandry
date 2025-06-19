@@ -37,7 +37,7 @@ Home of the KCN.gg Design System, a collection of reusable components and utilit
 - [ ] Badge
 - [ ] Avatar
 - [ ] Progress
-- [ ] Button
+- [x] Button
 - [ ] Button Group
 - [ ] Input 
 - [ ] Textarea

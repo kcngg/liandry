@@ -15,6 +15,9 @@ importers:
         specifier: ^2.3.1
         version: 2.3.1(typescript@5.8.3)(vue@3.5.16(typescript@5.8.3))
     devDependencies:
+      '@storybook/vue3':
+        specifier: ^9.0.12
+        version: 9.0.12(storybook@9.0.11(@testing-library/dom@10.4.0)(prettier@3.5.3))(vue@3.5.16(typescript@5.8.3))
       '@storybook/vue3-vite':
         specifier: ^9.0.11
         version: 9.0.11(storybook@9.0.11(@testing-library/dom@10.4.0)(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(tsx@4.20.3)(yaml@2.8.0))(vue@3.5.16(typescript@5.8.3))
@@ -697,6 +700,13 @@ packages:
     engines: {node: '>=20.0.0'}
     peerDependencies:
       storybook: ^9.0.11
+      vue: ^3.0.0
+
+  '@storybook/vue3@9.0.12':
+    resolution: {integrity: sha512-pnNqBsVSaIZ7E9iA7vdIg4fiJfxd3EB57vp4FwtmNBpHjHeP9S2yZKaov7LEC2+pWraqSL/tVqsYC8oUzhh1Rg==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      storybook: ^9.0.12
       vue: ^3.0.0
 
   '@swc/helpers@0.5.17':
@@ -3595,6 +3605,14 @@ snapshots:
       - vue
 
   '@storybook/vue3@9.0.11(storybook@9.0.11(@testing-library/dom@10.4.0)(prettier@3.5.3))(vue@3.5.16(typescript@5.8.3))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      storybook: 9.0.11(@testing-library/dom@10.4.0)(prettier@3.5.3)
+      type-fest: 2.19.0
+      vue: 3.5.16(typescript@5.8.3)
+      vue-component-type-helpers: 2.2.10
+
+  '@storybook/vue3@9.0.12(storybook@9.0.11(@testing-library/dom@10.4.0)(prettier@3.5.3))(vue@3.5.16(typescript@5.8.3))':
     dependencies:
       '@storybook/global': 5.0.0
       storybook: 9.0.11(@testing-library/dom@10.4.0)(prettier@3.5.3)

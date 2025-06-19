@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { LoaderCircle } from 'lucide-vue-next'
 import { tv } from 'tailwind-variants'
+import { computed, inject } from 'vue'
+import {
+  BUTTON_DEFAULTS,
+  BUTTON_GROUP_SIZE_KEY,
+  type ButtonSize,
+} from './constants'
 
 /**
  * Button component with multiple variants, colors, and sizes
@@ -12,7 +18,7 @@ interface ButtonProps {
   /** Button visual style */
   variant?: 'filled' | 'outline' | 'ghost'
   /** Button size */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: ButtonSize
   /** Show loading spinner */
   isLoading?: boolean
   /** Make button square for icon-only usage */
@@ -20,12 +26,20 @@ interface ButtonProps {
 }
 
 const {
-  color = 'primary',
-  variant = 'filled',
-  size = 'md',
-  isLoading = false,
-  asIcon = false,
+  color = BUTTON_DEFAULTS.color,
+  variant = BUTTON_DEFAULTS.variant,
+  size: propSize,
+  isLoading = BUTTON_DEFAULTS.isLoading,
+  asIcon = BUTTON_DEFAULTS.asIcon,
 } = defineProps<ButtonProps>()
+
+// Inject size from ButtonGroup if available using symbols
+const buttonGroupSize = inject(BUTTON_GROUP_SIZE_KEY, null)
+
+// Use group size if available, otherwise use prop size, otherwise default
+const size = computed<ButtonSize>(
+  () => buttonGroupSize || propSize || BUTTON_DEFAULTS.size,
+)
 
 const buttonStyle = tv({
   base:
