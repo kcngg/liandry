@@ -2,6 +2,7 @@ import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
@@ -13,6 +14,11 @@ export default defineConfig({
           include: [/\.vue$/, /\.ts$/],
         },
       },
+    }),
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true,
+      tsconfigPath: './tsconfig.json',
     }),
   ],
   resolve: {
