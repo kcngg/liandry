@@ -38,9 +38,10 @@ Home of the KCN.gg Design System, a collection of reusable components and utilit
 - [ ] Avatar
 - [ ] Progress
 - [x] Button
-- [ ] Button Group
+- [x] Button Group
 - [ ] Input 
 - [ ] Textarea
+- [x] Layouts
 
 ## Development
 
