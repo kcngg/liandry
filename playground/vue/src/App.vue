@@ -3,5 +3,5 @@ import { Button } from '@kcngg/liandry'
 </script>
 
 <template>
-  <Button label="bonjour" />
+  <Button />
 </template>
