@@ -268,7 +268,7 @@ describe('Button', () => {
       const wrapper = mount(Button, {
         props: { size: 'lg', asIcon: true },
         slots: {
-          default: '<span class="test-icon">Icon</span>'
+          default: '<span class="test-icon">Icon</span>',
         },
       })
 
@@ -294,11 +294,11 @@ describe('Button', () => {
         { size: 'xl', expectedIconClass: 'size-6' },
       ] as const
 
-      sizes.forEach(({ size, expectedIconClass }) => {
+      sizes.forEach(({ size }) => {
         const wrapper = mount(Button, {
           props: { size },
           slots: {
-            default: '<span>Icon</span>'
+            default: '<span>Icon</span>',
           },
         })
 
