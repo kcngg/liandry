@@ -23,8 +23,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.es.js"
     },
     "./package.json": "./package.json",
     "./style.css": "./dist/liandry.css"
