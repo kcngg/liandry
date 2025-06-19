@@ -1,3 +1,4 @@
+import { Plus } from 'lucide-vue-next'
 import Button from '@/components/button/Button.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
@@ -208,15 +209,13 @@ export const IconButton: Story = {
     },
   },
   render: (args) => ({
-    components: { Button },
+    components: { Button, Plus },
     setup() {
       return { args }
     },
     template: `
-      <Button :variant="args.variant" :size="args.size">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-        </svg>
+      <Button :variant="args.variant" :size="args.size" :asIcon="args.asIcon">
+        <Plus />
       </Button>
     `,
   }),

@@ -24,7 +24,7 @@ const buttonStyle = tv({
     'focus:scale-97.5',
   variants: {
     asIcon: {
-      true: 'aspect-square',
+      true: 'aspect-square !px-0',
     },
     variant: {
       primary: 'bg-blue-500 text-white hover:bg-blue-600',
@@ -49,6 +49,11 @@ const buttonStyle = tv({
       v-if="isLoading"
       class="animate-spin mr-2 size-5 text-white"
     />
-    <slot />
+
+    <slot
+      :class="{
+        'w-2px h-2px': asIcon && size === 'xs',
+      }"
+    />
   </button>
 </template>
