@@ -1,5 +1,8 @@
 import { Plus } from 'lucide-vue-next'
 import Button from '@/components/button/Button.vue'
+import Grid from '@/components/layout/Grid.vue'
+import Section from '@/components/layout/Section.vue'
+import Stack from '@/components/layout/Stack.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<any> = {
@@ -169,34 +172,33 @@ export const AllVariants: Story = {
     },
   },
   render: () => ({
-    components: { Button },
+    components: { Button, Stack, Section },
     template: `
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-        <div>
-          <h4 style="margin-bottom: 1rem; font-weight: 600;">Primary</h4>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <Stack gap="2rem">
+        <Section title="Primary" :level="4">
+          <Stack direction="row" gap="1rem" :wrap="true" align="center">
             <Button color="primary" variant="filled">Filled</Button>
             <Button color="primary" variant="outline">Outline</Button>
             <Button color="primary" variant="ghost">Ghost</Button>
-          </div>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-weight: 600;">Secondary</h4>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          </Stack>
+        </Section>
+        
+        <Section title="Secondary" :level="4">
+          <Stack direction="row" gap="1rem" :wrap="true" align="center">
             <Button color="secondary" variant="filled">Filled</Button>
             <Button color="secondary" variant="outline">Outline</Button>
             <Button color="secondary" variant="ghost">Ghost</Button>
-          </div>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-weight: 600;">Danger</h4>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          </Stack>
+        </Section>
+        
+        <Section title="Danger" :level="4">
+          <Stack direction="row" gap="1rem" :wrap="true" align="center">
             <Button color="danger" variant="filled">Filled</Button>
             <Button color="danger" variant="outline">Outline</Button>
             <Button color="danger" variant="ghost">Ghost</Button>
-          </div>
-        </div>
-      </div>
+          </Stack>
+        </Section>
+      </Stack>
     `,
   }),
 }
@@ -211,15 +213,15 @@ export const AllSizes: Story = {
     },
   },
   render: () => ({
-    components: { Button },
+    components: { Button, Stack },
     template: `
-      <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+      <Stack direction="row" gap="1rem" :wrap="true" align="center">
         <Button color="primary" variant="filled" size="xs">XS</Button>
         <Button color="primary" variant="filled" size="sm">SM</Button>
         <Button color="primary" variant="filled" size="md">MD</Button>
         <Button color="primary" variant="filled" size="lg">LG</Button>
         <Button color="primary" variant="filled" size="xl">XL</Button>
-      </div>
+      </Stack>
     `,
   }),
 }
@@ -228,19 +230,18 @@ export const LoadingStates: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          'Boutons dans différents états de chargement.',
+        story: 'Boutons dans différents états de chargement.',
       },
     },
   },
   render: () => ({
-    components: { Button },
+    components: { Button, Stack },
     template: `
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <Stack direction="row" gap="1rem" :wrap="true" align="center">
         <Button color="primary" variant="filled" :isLoading="true">Loading...</Button>
         <Button color="secondary" variant="outline" :isLoading="true">Loading...</Button>
         <Button color="danger" variant="ghost" :isLoading="true">Loading...</Button>
-      </div>
+      </Stack>
     `,
   }),
 }
@@ -255,28 +256,27 @@ export const IconButtons: Story = {
     },
   },
   render: () => ({
-    components: { Button, Plus },
+    components: { Button, Plus, Stack, Section },
     template: `
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-        <div>
-          <h4 style="margin-bottom: 1rem; font-weight: 600;">Sizes</h4>
-          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+      <Stack gap="2rem">
+        <Section title="Sizes" :level="4">
+          <Stack direction="row" gap="1rem" :wrap="true" align="center">
             <Button color="primary" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
             <Button color="primary" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
             <Button color="primary" variant="filled" size="md" :asIcon="true"><Plus /></Button>
             <Button color="primary" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
             <Button color="primary" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-          </div>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-weight: 600;">Variants</h4>
-          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          </Stack>
+        </Section>
+        
+        <Section title="Variants" :level="4">
+          <Stack direction="row" gap="1rem" :wrap="true" align="center">
             <Button color="primary" variant="filled" :asIcon="true"><Plus /></Button>
             <Button color="primary" variant="outline" :asIcon="true"><Plus /></Button>
             <Button color="primary" variant="ghost" :asIcon="true"><Plus /></Button>
-          </div>
-        </div>
-      </div>
+          </Stack>
+        </Section>
+      </Stack>
     `,
   }),
 }
@@ -291,256 +291,241 @@ export const CompleteMatrix: Story = {
     },
   },
   render: () => ({
-    components: { Button, Plus },
+    components: { Button, Plus, Stack, Grid, Section },
     template: `
-      <div style="display: flex; flex-direction: column; gap: 3rem;">
+      <Stack gap="3rem">
         <!-- Regular Buttons Matrix -->
-        <div>
-          <h3 style="margin-bottom: 1.5rem; font-weight: 700; font-size: 1.25rem;">Regular Buttons</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <Section title="Regular Buttons" :level="3">
+          <Grid>
             <!-- Primary -->
-            <div>
-              <h4 style="margin-bottom: 1rem; font-weight: 600; color: #3b82f6;">Primary</h4>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Filled</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <Section title="Primary" color="#3b82f6">
+              <Stack gap="1rem">
+                <Section title="Filled" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="primary" variant="filled" size="xs">XS</Button>
                     <Button color="primary" variant="filled" size="sm">SM</Button>
                     <Button color="primary" variant="filled" size="md">MD</Button>
                     <Button color="primary" variant="filled" size="lg">LG</Button>
                     <Button color="primary" variant="filled" size="xl">XL</Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Outline</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Outline" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="primary" variant="outline" size="xs">XS</Button>
                     <Button color="primary" variant="outline" size="sm">SM</Button>
                     <Button color="primary" variant="outline" size="md">MD</Button>
                     <Button color="primary" variant="outline" size="lg">LG</Button>
                     <Button color="primary" variant="outline" size="xl">XL</Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Ghost</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Ghost" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="primary" variant="ghost" size="xs">XS</Button>
                     <Button color="primary" variant="ghost" size="sm">SM</Button>
                     <Button color="primary" variant="ghost" size="md">MD</Button>
                     <Button color="primary" variant="ghost" size="lg">LG</Button>
                     <Button color="primary" variant="ghost" size="xl">XL</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </Stack>
+                </Section>
+              </Stack>
+            </Section>
 
             <!-- Secondary -->
-            <div>
-              <h4 style="margin-bottom: 1rem; font-weight: 600; color: #6b7280;">Secondary</h4>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Filled</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <Section title="Secondary" color="#6b7280">
+              <Stack gap="1rem">
+                <Section title="Filled" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="secondary" variant="filled" size="xs">XS</Button>
                     <Button color="secondary" variant="filled" size="sm">SM</Button>
                     <Button color="secondary" variant="filled" size="md">MD</Button>
                     <Button color="secondary" variant="filled" size="lg">LG</Button>
                     <Button color="secondary" variant="filled" size="xl">XL</Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Outline</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Outline" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="secondary" variant="outline" size="xs">XS</Button>
                     <Button color="secondary" variant="outline" size="sm">SM</Button>
                     <Button color="secondary" variant="outline" size="md">MD</Button>
                     <Button color="secondary" variant="outline" size="lg">LG</Button>
                     <Button color="secondary" variant="outline" size="xl">XL</Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Ghost</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Ghost" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="secondary" variant="ghost" size="xs">XS</Button>
                     <Button color="secondary" variant="ghost" size="sm">SM</Button>
                     <Button color="secondary" variant="ghost" size="md">MD</Button>
                     <Button color="secondary" variant="ghost" size="lg">LG</Button>
                     <Button color="secondary" variant="ghost" size="xl">XL</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </Stack>
+                </Section>
+              </Stack>
+            </Section>
 
             <!-- Danger -->
-            <div>
-              <h4 style="margin-bottom: 1rem; font-weight: 600; color: #ef4444;">Danger</h4>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Filled</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <Section title="Danger" color="#ef4444">
+              <Stack gap="1rem">
+                <Section title="Filled" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="danger" variant="filled" size="xs">XS</Button>
                     <Button color="danger" variant="filled" size="sm">SM</Button>
                     <Button color="danger" variant="filled" size="md">MD</Button>
                     <Button color="danger" variant="filled" size="lg">LG</Button>
                     <Button color="danger" variant="filled" size="xl">XL</Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Outline</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Outline" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="danger" variant="outline" size="xs">XS</Button>
                     <Button color="danger" variant="outline" size="sm">SM</Button>
                     <Button color="danger" variant="outline" size="md">MD</Button>
                     <Button color="danger" variant="outline" size="lg">LG</Button>
                     <Button color="danger" variant="outline" size="xl">XL</Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Ghost</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Ghost" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="danger" variant="ghost" size="xs">XS</Button>
                     <Button color="danger" variant="ghost" size="sm">SM</Button>
                     <Button color="danger" variant="ghost" size="md">MD</Button>
                     <Button color="danger" variant="ghost" size="lg">LG</Button>
                     <Button color="danger" variant="ghost" size="xl">XL</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  </Stack>
+                </Section>
+              </Stack>
+            </Section>
+          </Grid>
+        </Section>
 
         <!-- Icon Buttons Matrix -->
-        <div>
-          <h3 style="margin-bottom: 1.5rem; font-weight: 700; font-size: 1.25rem;">Icon Buttons (asIcon=true)</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <Section title="Icon Buttons (asIcon=true)" :level="3">
+          <Grid>
             <!-- Primary Icons -->
-            <div>
-              <h4 style="margin-bottom: 1rem; font-weight: 600; color: #3b82f6;">Primary Icons</h4>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Filled</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <Section title="Primary Icons" color="#3b82f6">
+              <Stack gap="1rem">
+                <Section title="Filled" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="primary" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="filled" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Outline</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Outline" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="primary" variant="outline" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="outline" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="outline" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="outline" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="outline" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Ghost</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Ghost" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="primary" variant="ghost" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="ghost" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="ghost" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="ghost" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="primary" variant="ghost" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </Stack>
+                </Section>
+              </Stack>
+            </Section>
 
             <!-- Secondary Icons -->
-            <div>
-              <h4 style="margin-bottom: 1rem; font-weight: 600; color: #6b7280;">Secondary Icons</h4>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Filled</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <Section title="Secondary Icons" color="#6b7280">
+              <Stack gap="1rem">
+                <Section title="Filled" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="secondary" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="filled" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Outline</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Outline" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="secondary" variant="outline" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="outline" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="outline" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="outline" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="outline" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Ghost</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Ghost" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="secondary" variant="ghost" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="ghost" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="ghost" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="ghost" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="secondary" variant="ghost" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </Stack>
+                </Section>
+              </Stack>
+            </Section>
 
             <!-- Danger Icons -->
-            <div>
-              <h4 style="margin-bottom: 1rem; font-weight: 600; color: #ef4444;">Danger Icons</h4>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Filled</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <Section title="Danger Icons" color="#ef4444">
+              <Stack gap="1rem">
+                <Section title="Filled" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="danger" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="filled" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Outline</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Outline" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="danger" variant="outline" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="outline" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="outline" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="outline" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="outline" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-                <div>
-                  <h5 style="margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Ghost</h5>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  </Stack>
+                </Section>
+                
+                <Section title="Ghost" :level="5">
+                  <Stack direction="row" gap="0.5rem" wrap>
                     <Button color="danger" variant="ghost" size="xs" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="ghost" size="sm" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="ghost" size="md" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="ghost" size="lg" :asIcon="true"><Plus /></Button>
                     <Button color="danger" variant="ghost" size="xl" :asIcon="true"><Plus /></Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  </Stack>
+                </Section>
+              </Stack>
+            </Section>
+          </Grid>
+        </Section>
 
         <!-- Loading States -->
-        <div>
-          <h3 style="margin-bottom: 1.5rem; font-weight: 700; font-size: 1.25rem;">Loading States</h3>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <Section title="Loading States" :level="3">
+          <Stack direction="row" gap="1rem" wrap align="center">
             <Button color="primary" variant="filled" :isLoading="true">Loading Filled</Button>
             <Button color="primary" variant="outline" :isLoading="true">Loading Outline</Button>
             <Button color="primary" variant="ghost" :isLoading="true">Loading Ghost</Button>
             <Button color="secondary" variant="filled" :isLoading="true">Loading Secondary</Button>
             <Button color="danger" variant="filled" :isLoading="true">Loading Danger</Button>
             <Button color="primary" variant="filled" :isLoading="true" :asIcon="true"><Plus /></Button>
-          </div>
-        </div>
-      </div>
+          </Stack>
+        </Section>
+      </Stack>
     `,
   }),
 }
