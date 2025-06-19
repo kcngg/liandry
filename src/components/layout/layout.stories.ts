@@ -1,3 +1,4 @@
+import { Plus } from 'lucide-vue-next'
 import Stack from '@/components/layout/Stack.vue'
 import Grid from '@/components/layout/Grid.vue'
 import Section from '@/components/layout/Section.vue'
@@ -6,31 +7,31 @@ import Button from '@/components/button/Button.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<any> = {
-    title: 'Layout/Components',
-    parameters: {
-        docs: {
-            description: {
-                component: 'Composants de layout pour organiser et structurer le contenu.',
-            },
-        },
+  title: 'Layout/Components',
+  parameters: {
+    docs: {
+      description: {
+        component: 'Composants de layout pour organiser et structurer le contenu.',
+      },
     },
-    tags: ['autodocs'],
+  },
+  tags: ['autodocs'],
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const StackExamples: Story = {
-    parameters: {
-        docs: {
-            description: {
-                story: 'Le composant Stack pour organiser les éléments en ligne ou en colonne avec flexbox.',
-            },
-        },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Le composant Stack pour organiser les éléments en ligne ou en colonne avec flexbox.',
+      },
     },
-    render: () => ({
-        components: { Stack, Button, Section },
-        template: `
+  },
+  render: () => ({
+    components: { Stack, Button, Section },
+    template: `
       <Stack gap="3rem">
         <Section title="Direction Column (défaut)" :level="3">
           <Stack gap="1rem">
@@ -70,20 +71,20 @@ export const StackExamples: Story = {
         </Section>
       </Stack>
     `,
-    }),
+  }),
 }
 
 export const GridExamples: Story = {
-    parameters: {
-        docs: {
-            description: {
-                story: 'Le composant Grid pour créer des layouts en grille avec CSS Grid.',
-            },
-        },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Le composant Grid pour créer des layouts en grille avec CSS Grid.',
+      },
     },
-    render: () => ({
-        components: { Grid, Button, Section, Stack },
-        template: `
+  },
+  render: () => ({
+    components: { Grid, Button, Section, Stack },
+    template: `
       <Stack gap="3rem">
         <Section title="Grille 3 colonnes" :level="3">
           <Grid :columns="3" gap="1rem">
@@ -115,20 +116,20 @@ export const GridExamples: Story = {
         </Section>
       </Stack>
     `,
-    }),
+  }),
 }
 
 export const SectionExamples: Story = {
-    parameters: {
-        docs: {
-            description: {
-                story: 'Le composant Section pour organiser le contenu avec des titres hiérarchiques.',
-            },
-        },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Le composant Section pour organiser le contenu avec des titres hiérarchiques.',
+      },
     },
-    render: () => ({
-        components: { Section, Button, Stack },
-        template: `
+  },
+  render: () => ({
+    components: { Section, Button, Stack },
+    template: `
       <Stack gap="2rem">
         <Section title="Titre H1" :level="1" subtitle="Sous-titre optionnel">
           <p>Contenu de la section avec un titre H1.</p>
@@ -162,20 +163,20 @@ export const SectionExamples: Story = {
         </Section>
       </Stack>
     `,
-    }),
+  }),
 }
 
 export const ContainerExamples: Story = {
-    parameters: {
-        docs: {
-            description: {
-                story: 'Le composant Container pour limiter la largeur du contenu et le centrer.',
-            },
-        },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Le composant Container pour limiter la largeur du contenu et le centrer.',
+      },
     },
-    render: () => ({
-        components: { Container, Section, Stack, Button },
-        template: `
+  },
+  render: () => ({
+    components: { Container, Section, Stack, Button },
+    template: `
       <Stack gap="3rem">
         <Section title="Container XS (480px)" :level="3">
           <Container size="xs" style="background: #f3f4f6; border: 1px dashed #d1d5db;">
@@ -216,20 +217,20 @@ export const ContainerExamples: Story = {
         </Section>
       </Stack>
     `,
-    }),
+  }),
 }
 
 export const CombinedLayout: Story = {
-    parameters: {
-        docs: {
-            description: {
-                story: 'Exemple combinant tous les composants layout pour créer une interface complète.',
-            },
-        },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Exemple combinant tous les composants layout pour créer une interface complète.',
+      },
     },
-    render: () => ({
-        components: { Container, Section, Stack, Grid, Button },
-        template: `
+  },
+  render: () => ({
+    components: { Container, Section, Stack, Grid, Button },
+    template: `
       <Container size="xl">
         <Stack gap="4rem">
           <Section title="Interface Complète" :level="1" subtitle="Démonstration des composants layout combinés">
@@ -285,5 +286,5 @@ export const CombinedLayout: Story = {
         </Stack>
       </Container>
     `,
-    }),
+  }),
 } 

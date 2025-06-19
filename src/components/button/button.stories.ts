@@ -251,7 +251,7 @@ export const IconButtons: Story = {
     docs: {
       description: {
         story:
-          'Boutons carrés pour icônes dans différentes tailles et variantes.',
+          'Boutons carrés pour icônes dans différentes tailles et variantes. Les icônes s\'adaptent automatiquement à la taille du bouton via la prop iconClass du slot.',
       },
     },
   },
@@ -261,19 +261,51 @@ export const IconButtons: Story = {
       <Stack gap="2rem">
         <Section title="Sizes" :level="4">
           <Stack direction="row" gap="1rem" :wrap="true" align="center">
-            <Button color="primary" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
-            <Button color="primary" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
-            <Button color="primary" variant="filled" size="md" :asIcon="true"><Plus /></Button>
-            <Button color="primary" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
-            <Button color="primary" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
+            <Button color="primary" variant="filled" size="xs" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
+            <Button color="primary" variant="filled" size="sm" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
+            <Button color="primary" variant="filled" size="md" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
+            <Button color="primary" variant="filled" size="lg" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
+            <Button color="primary" variant="filled" size="xl" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
           </Stack>
         </Section>
         
         <Section title="Variants" :level="4">
           <Stack direction="row" gap="1rem" :wrap="true" align="center">
-            <Button color="primary" variant="filled" :asIcon="true"><Plus /></Button>
-            <Button color="primary" variant="outline" :asIcon="true"><Plus /></Button>
-            <Button color="primary" variant="ghost" :asIcon="true"><Plus /></Button>
+            <Button color="primary" variant="filled" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
+            <Button color="primary" variant="outline" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
+            <Button color="primary" variant="ghost" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
           </Stack>
         </Section>
       </Stack>
@@ -410,105 +442,285 @@ export const CompleteMatrix: Story = {
             <!-- Primary Icons -->
             <Section title="Primary Icons" color="#3b82f6">
               <Stack gap="1rem">
-                <Section title="Filled" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="primary" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="filled" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
-                
-                <Section title="Outline" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="primary" variant="outline" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="outline" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="outline" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="outline" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="outline" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
-                
-                <Section title="Ghost" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="primary" variant="ghost" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="ghost" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="ghost" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="ghost" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="primary" variant="ghost" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
+                                 <Section title="Filled" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="primary" variant="filled" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="filled" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="filled" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="filled" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="filled" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
+                 
+                 <Section title="Outline" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="primary" variant="outline" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="outline" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="outline" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="outline" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="outline" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
+                 
+                 <Section title="Ghost" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="primary" variant="ghost" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="ghost" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="ghost" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="ghost" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="primary" variant="ghost" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
               </Stack>
             </Section>
 
             <!-- Secondary Icons -->
             <Section title="Secondary Icons" color="#6b7280">
               <Stack gap="1rem">
-                <Section title="Filled" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="secondary" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="filled" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
-                
-                <Section title="Outline" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="secondary" variant="outline" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="outline" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="outline" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="outline" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="outline" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
-                
-                <Section title="Ghost" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="secondary" variant="ghost" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="ghost" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="ghost" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="ghost" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="secondary" variant="ghost" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
+                                 <Section title="Filled" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="secondary" variant="filled" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="filled" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="filled" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="filled" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="filled" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
+                 
+                 <Section title="Outline" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="secondary" variant="outline" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="outline" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="outline" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="outline" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="outline" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
+                 
+                 <Section title="Ghost" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="secondary" variant="ghost" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="ghost" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="ghost" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="ghost" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="secondary" variant="ghost" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
               </Stack>
             </Section>
 
             <!-- Danger Icons -->
             <Section title="Danger Icons" color="#ef4444">
               <Stack gap="1rem">
-                <Section title="Filled" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="danger" variant="filled" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="filled" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="filled" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="filled" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="filled" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
-                
-                <Section title="Outline" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="danger" variant="outline" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="outline" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="outline" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="outline" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="outline" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
-                
-                <Section title="Ghost" :level="5">
-                  <Stack direction="row" gap="0.5rem" wrap>
-                    <Button color="danger" variant="ghost" size="xs" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="ghost" size="sm" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="ghost" size="md" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="ghost" size="lg" :asIcon="true"><Plus /></Button>
-                    <Button color="danger" variant="ghost" size="xl" :asIcon="true"><Plus /></Button>
-                  </Stack>
-                </Section>
+                                 <Section title="Filled" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="danger" variant="filled" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="filled" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="filled" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="filled" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="filled" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
+                 
+                 <Section title="Outline" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="danger" variant="outline" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="outline" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="outline" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="outline" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="outline" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
+                 
+                 <Section title="Ghost" :level="5">
+                   <Stack direction="row" gap="0.5rem" wrap>
+                     <Button color="danger" variant="ghost" size="xs" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="ghost" size="sm" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="ghost" size="md" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="ghost" size="lg" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                     <Button color="danger" variant="ghost" size="xl" :asIcon="true">
+                       <template #default="{ iconClass }">
+                         <Plus :class="iconClass" />
+                       </template>
+                     </Button>
+                   </Stack>
+                 </Section>
               </Stack>
             </Section>
           </Grid>
@@ -522,7 +734,11 @@ export const CompleteMatrix: Story = {
             <Button color="primary" variant="ghost" :isLoading="true">Loading Ghost</Button>
             <Button color="secondary" variant="filled" :isLoading="true">Loading Secondary</Button>
             <Button color="danger" variant="filled" :isLoading="true">Loading Danger</Button>
-            <Button color="primary" variant="filled" :isLoading="true" :asIcon="true"><Plus /></Button>
+            <Button color="primary" variant="filled" :isLoading="true" :asIcon="true">
+              <template #default="{ iconClass }">
+                <Plus :class="iconClass" />
+              </template>
+            </Button>
           </Stack>
         </Section>
       </Stack>

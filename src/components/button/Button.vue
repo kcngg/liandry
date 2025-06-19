@@ -103,6 +103,30 @@ const buttonStyle = tv({
     },
   ],
 })
+
+// Icon size mapping based on button size
+const getIconSize = (size: string) => {
+  const sizeMap = {
+    xs: 'size-3', // 12px
+    sm: 'size-4', // 16px  
+    md: 'size-4', // 16px
+    lg: 'size-5', // 20px
+    xl: 'size-6', // 24px
+  }
+  return sizeMap[size as keyof typeof sizeMap] || 'size-4'
+}
+
+// Loader icon size mapping
+const getLoaderSize = (size: string) => {
+  const sizeMap = {
+    xs: 'size-3', // 12px
+    sm: 'size-4', // 16px
+    md: 'size-4', // 16px
+    lg: 'size-5', // 20px
+    xl: 'size-6', // 24px
+  }
+  return sizeMap[size as keyof typeof sizeMap] || 'size-4'
+}
 </script>
 
 <template>
@@ -113,18 +137,21 @@ const buttonStyle = tv({
     <!-- Show loader if isLoading is true -->
     <LoaderCircle
       v-if="isLoading"
-      class="animate-spin size-5 text-white"
-      :class="{
-        'mr-2': !asIcon,
-      }"
+      class="animate-spin text-white"
+      :class="[
+        getLoaderSize(size),
+        {
+          'mr-2': !asIcon,
+        }
+      ]"
     />
 
     <template v-if="isLoading && asIcon" />
     <slot
       v-else
-      :class="{
-        'w-2px h-2px': asIcon && size === 'xs',
-      }"
+      :icon-class="getIconSize(size)"
+      :size="size"
+      :as-icon="asIcon"
     />
   </button>
 </template>
