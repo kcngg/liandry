@@ -22,8 +22,8 @@ const buttonStyle = tv({
     'flex items-center justify-center ' +
     'font-400 ' +
     'disabled:opacity-75 disabled:cursor-not-allowed ' +
-    'transition-all ' +
-    'focus:scale-97.5',
+    'transition-all duration-200 ease-in-out ' +
+    'focus:scale-97.5 focus:outline-none focus:ring-2 focus:ring-offset-2',
   variants: {
     asIcon: {
       true: 'aspect-square !px-0',
@@ -51,55 +51,55 @@ const buttonStyle = tv({
     {
       variant: 'filled',
       color: 'primary',
-      class: 'bg-blue-500 text-white hover:bg-blue-600',
+      class: 'bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500/50',
     },
     // Primary outline
     {
       variant: 'outline',
       color: 'primary',
-      class: 'border-blue-500 text-blue-500 hover:bg-blue-50',
+      class: 'border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white focus:ring-blue-500/50',
     },
     // Primary ghost
     {
       variant: 'ghost',
       color: 'primary',
-      class: 'text-blue-500 hover:bg-blue-50',
+      class: 'text-blue-500 hover:bg-blue-100 hover:text-blue-600 focus:ring-blue-500/50',
     },
     // Secondary filled
     {
       variant: 'filled',
       color: 'secondary',
-      class: 'bg-white/3 text-white hover:bg-white/6',
+      class: 'bg-white/3 text-white hover:bg-white/10 focus:ring-white/30',
     },
     // Secondary outline
     {
       variant: 'outline',
       color: 'secondary',
-      class: 'border-white/6 text-white hover:bg-white/3',
+      class: 'border-white/6 text-white hover:bg-white/10 hover:border-white/20 focus:ring-white/30',
     },
     // Secondary ghost
     {
       variant: 'ghost',
       color: 'secondary',
-      class: 'text-white hover:bg-white/3',
+      class: 'text-white hover:bg-white/10 focus:ring-white/30',
     },
     // Danger filled
     {
       variant: 'filled',
       color: 'danger',
-      class: 'bg-red-500 text-white hover:bg-red-600',
+      class: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500/50',
     },
     // Danger outline
     {
       variant: 'outline',
       color: 'danger',
-      class: 'border-red-500 text-red-500 hover:bg-red-50',
+      class: 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white focus:ring-red-500/50',
     },
     // Danger ghost
     {
       variant: 'ghost',
       color: 'danger',
-      class: 'text-red-500 hover:bg-red-50',
+      class: 'text-red-500 hover:bg-red-100 hover:text-red-600 focus:ring-red-500/50',
     },
   ],
 })
