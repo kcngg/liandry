@@ -40,4 +40,4 @@ const formatPadding = (value: string | number) => {
   >
     <slot />
   </component>
-</template> 
+</template>

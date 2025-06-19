@@ -126,7 +126,7 @@ const buttonStyle = tv({
 const getIconSize = (size: string) => {
   const sizeMap = {
     xs: 'size-3', // 12px
-    sm: 'size-4', // 16px  
+    sm: 'size-4', // 16px
     md: 'size-4', // 16px
     lg: 'size-5', // 20px
     xl: 'size-6', // 24px

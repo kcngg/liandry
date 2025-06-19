@@ -251,7 +251,7 @@ export const IconButtons: Story = {
     docs: {
       description: {
         story:
-          'Boutons carrés pour icônes dans différentes tailles et variantes. Les icônes s\'adaptent automatiquement à la taille du bouton via la prop iconClass du slot.',
+          "Boutons carrés pour icônes dans différentes tailles et variantes. Les icônes s'adaptent automatiquement à la taille du bouton via la prop iconClass du slot.",
       },
     },
   },
