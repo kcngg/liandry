@@ -346,13 +346,6 @@ export const WithBorders = {
 export const Interactive = {
   render: () => ({
     components: { Avatar },
-    setup() {
-      const handleLoadingStatusChange = (status: string) => {
-        console.log('Loading status changed:', status)
-      }
-
-      return { handleLoadingStatusChange }
-    },
     template: `
       <div class="space-y-4">
         <h3 class="text-sm font-medium">Click to see loading status in console</h3>
@@ -361,7 +354,6 @@ export const Interactive = {
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
             alt="John Doe" 
             size="lg" 
-            @loading-status-change="handleLoadingStatusChange"
             class="cursor-pointer hover:opacity-80 transition-opacity"
           />
           
@@ -369,7 +361,6 @@ export const Interactive = {
             src="https://invalid-url.jpg" 
             alt="Broken Image" 
             size="lg" 
-            @loading-status-change="handleLoadingStatusChange"
             class="cursor-pointer hover:opacity-80 transition-opacity"
           />
           

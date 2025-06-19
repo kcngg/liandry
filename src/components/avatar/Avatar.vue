@@ -91,18 +91,18 @@ const fallbackText = computed(() => {
   if (props.fallback) {
     return props.fallback
   }
-  
+
   // Generate initials from alt text if available
   if (props.alt && props.alt.trim()) {
     return props.alt
       .trim()
       .split(/\s+/)
-      .map(word => word.charAt(0))
+      .map((word) => word.charAt(0))
       .join('')
-      .substring(0, 2)
+      .slice(0, 2)
       .toUpperCase()
   }
-  
+
   return '?'
 })
 
