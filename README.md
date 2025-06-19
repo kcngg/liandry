@@ -35,7 +35,7 @@ Home of the KCN.gg Design System, a collection of reusable components and utilit
 - [ ] Radio Group
 - [ ] Form
 - [ ] Badge
-- [ ] Avatar
+- [x] Avatar
 - [ ] Progress
 - [x] Button
 - [x] Button Group
