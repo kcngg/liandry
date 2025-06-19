@@ -50,4 +50,4 @@ const justifyMap = {
   >
     <slot />
   </component>
-</template> 
+</template>

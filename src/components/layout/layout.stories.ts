@@ -1,9 +1,8 @@
-import { Plus } from 'lucide-vue-next'
-import Stack from '@/components/layout/Stack.vue'
+import Button from '@/components/button/Button.vue'
+import Container from '@/components/layout/Container.vue'
 import Grid from '@/components/layout/Grid.vue'
 import Section from '@/components/layout/Section.vue'
-import Container from '@/components/layout/Container.vue'
-import Button from '@/components/button/Button.vue'
+import Stack from '@/components/layout/Stack.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<any> = {
@@ -25,7 +24,8 @@ export const StackExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Stack component for organizing elements in rows or columns using flexbox.',
+        story:
+          'Stack component for organizing elements in rows or columns using flexbox.',
       },
     },
   },
@@ -123,7 +123,8 @@ export const SectionExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Section component for organizing content with hierarchical titles.',
+        story:
+          'Section component for organizing content with hierarchical titles.',
       },
     },
   },
@@ -224,7 +225,8 @@ export const CombinedLayout: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Example combining all layout components to create a complete interface.',
+        story:
+          'Example combining all layout components to create a complete interface.',
       },
     },
   },
@@ -297,4 +299,4 @@ export const CombinedLayout: Story = {
       </Container>
     `,
   }),
-} 
+}

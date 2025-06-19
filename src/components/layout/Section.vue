@@ -22,21 +22,36 @@ const formatSpacing = (value: string | number) => {
 
 <template>
   <component :is="as" class="section">
-    <header v-if="title || subtitle" class="section-header" :style="{ marginBottom: formatSpacing(spacing) }">
+    <header
+      v-if="title || subtitle"
+      class="section-header"
+      :style="{ marginBottom: formatSpacing(spacing) }"
+    >
       <component
-        v-if="title"
         :is="`h${level}`"
+        v-if="title"
         class="section-title"
         :style="{
           margin: 0,
           fontWeight: level <= 2 ? '700' : level <= 4 ? '600' : '500',
-          fontSize: level === 1 ? '2rem' : level === 2 ? '1.5rem' : level === 3 ? '1.25rem' : level === 4 ? '1.125rem' : level === 5 ? '1rem' : '0.875rem',
+          fontSize:
+            level === 1
+              ? '2rem'
+              : level === 2
+                ? '1.5rem'
+                : level === 3
+                  ? '1.25rem'
+                  : level === 4
+                    ? '1.125rem'
+                    : level === 5
+                      ? '1rem'
+                      : '0.875rem',
           lineHeight: level <= 2 ? '1.2' : '1.4',
         }"
       >
         {{ title }}
       </component>
-      
+
       <p
         v-if="subtitle"
         class="section-subtitle"
@@ -50,9 +65,9 @@ const formatSpacing = (value: string | number) => {
         {{ subtitle }}
       </p>
     </header>
-    
+
     <div class="section-content">
       <slot />
     </div>
   </component>
-</template> 
+</template>
