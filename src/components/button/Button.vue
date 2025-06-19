@@ -2,14 +2,16 @@
 import { LoaderCircle } from 'lucide-vue-next'
 import { tv } from 'tailwind-variants'
 interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'danger'
+  color?: 'primary' | 'secondary' | 'danger'
+  variant?: 'filled' | 'outline' | 'ghost'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   isLoading?: boolean
   asIcon?: boolean
 }
 
 const {
-  variant = 'primary',
+  color = 'primary',
+  variant = 'filled',
   size = 'md',
   isLoading = false,
   asIcon = false,
@@ -27,9 +29,14 @@ const buttonStyle = tv({
       true: 'aspect-square !px-0',
     },
     variant: {
-      primary: 'bg-blue-500 text-white hover:bg-blue-600',
-      secondary: 'bg-gray-500 text-white hover:bg-gray-600',
-      danger: 'bg-red-500 text-white hover:bg-red-600',
+      filled: '',
+      outline: 'bg-transparent border-1',
+      ghost: 'bg-transparent',
+    },
+    color: {
+      primary: '',
+      secondary: '',
+      danger: '',
     },
     size: {
       xs: 'px-2 py-1 h-26px text-xs rounded-6px',
@@ -39,18 +46,82 @@ const buttonStyle = tv({
       xl: 'px-6 py-4 h-44px text-base rounded-10px',
     },
   },
+  compoundVariants: [
+    // Primary filled
+    {
+      variant: 'filled',
+      color: 'primary',
+      class: 'bg-blue-500 text-white hover:bg-blue-600',
+    },
+    // Primary outline
+    {
+      variant: 'outline',
+      color: 'primary',
+      class: 'border-blue-500 text-blue-500 hover:bg-blue-50',
+    },
+    // Primary ghost
+    {
+      variant: 'ghost',
+      color: 'primary',
+      class: 'text-blue-500 hover:bg-blue-50',
+    },
+    // Secondary filled
+    {
+      variant: 'filled',
+      color: 'secondary',
+      class: 'bg-white/3 text-white hover:bg-white/6',
+    },
+    // Secondary outline
+    {
+      variant: 'outline',
+      color: 'secondary',
+      class: 'border-white/6 text-white hover:bg-white/3',
+    },
+    // Secondary ghost
+    {
+      variant: 'ghost',
+      color: 'secondary',
+      class: 'text-white hover:bg-white/3',
+    },
+    // Danger filled
+    {
+      variant: 'filled',
+      color: 'danger',
+      class: 'bg-red-500 text-white hover:bg-red-600',
+    },
+    // Danger outline
+    {
+      variant: 'outline',
+      color: 'danger',
+      class: 'border-red-500 text-red-500 hover:bg-red-50',
+    },
+    // Danger ghost
+    {
+      variant: 'ghost',
+      color: 'danger',
+      class: 'text-red-500 hover:bg-red-50',
+    },
+  ],
 })
 </script>
 
 <template>
-  <button :disabled="isLoading" :class="buttonStyle({ variant, size, asIcon })">
+  <button
+    :disabled="isLoading"
+    :class="buttonStyle({ variant, color, size, asIcon })"
+  >
     <!-- Show loader if isLoading is true -->
     <LoaderCircle
       v-if="isLoading"
-      class="animate-spin mr-2 size-5 text-white"
+      class="animate-spin size-5 text-white"
+      :class="{
+        'mr-2': !asIcon,
+      }"
     />
 
+    <template v-if="isLoading && asIcon" />
     <slot
+      v-else
       :class="{
         'w-2px h-2px': asIcon && size === 'xs',
       }"
