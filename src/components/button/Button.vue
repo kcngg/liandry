@@ -50,10 +50,10 @@ const buttonStyle = tv({
     },
     size: {
       xs: 'px-2 py-1 h-26px text-xs rounded-6px',
-      sm: 'px-3 py-2 h-32px text-xs rounded-8px',
+      sm: 'px-3 py-2 h-32px text-xs rounded-6px',
       md: 'px-4 py-2 h-36px text-sm rounded-8px',
       lg: 'px-5 py-3 h-40px text-base rounded-10px',
-      xl: 'px-6 py-4 h-44px text-base rounded-10px',
+      xl: 'px-6 py-4 h-44px text-base rounded-12px',
     },
   },
   compoundVariants: [
