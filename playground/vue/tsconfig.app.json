@@ -2,6 +2,15 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@kcngg/liandry": [
+        "../../dist/index.d.ts"
+      ],
+      "@kcngg/liandry/*": [
+        "../../dist/*"
+      ]
+    },
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
