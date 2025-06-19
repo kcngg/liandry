@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import { LoaderCircle } from 'lucide-vue-next'
 import { tv } from 'tailwind-variants'
+
+/**
+ * Button component with multiple variants, colors, and sizes
+ * Supports loading states and icon-only buttons
+ */
 interface ButtonProps {
+  /** Button color theme */
   color?: 'primary' | 'secondary' | 'danger'
+  /** Button visual style */
   variant?: 'filled' | 'outline' | 'ghost'
+  /** Button size */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Show loading spinner */
   isLoading?: boolean
+  /** Make button square for icon-only usage */
   asIcon?: boolean
 }
 
@@ -90,30 +100,33 @@ const buttonStyle = tv({
     {
       variant: 'filled',
       color: 'danger',
-      class: 'bg-red-500 text-white hover:bg-red-600 focus:bg-red-700',
+      class: 'bg-red-600 text-white hover:bg-red-600/90 focus:bg-red-600/80',
     },
     // Danger outline
     {
       variant: 'outline',
       color: 'danger',
       class:
-        'border-red-500 text-red-500 hover:bg-red-500 hover:text-white focus:bg-red-600 focus:text-white',
+        'border-red-600 text-red-600 hover:bg-red-600 hover:text-white focus:bg-red-600/90 focus:text-white',
     },
     // Danger ghost
     {
       variant: 'ghost',
       color: 'danger',
       class:
-        'text-red-500 hover:bg-red-100 hover:text-red-600 focus:bg-red-200 focus:text-red-700',
+        'text-red-600 hover:bg-red-600/10 hover:text-red-600 focus:bg-red-600/20 focus:text-red-600',
     },
   ],
 })
 
-// Icon size mapping based on button size
+/**
+ * Get icon size class based on button size
+ * Maps button sizes to appropriate icon dimensions
+ */
 const getIconSize = (size: string) => {
   const sizeMap = {
     xs: 'size-3', // 12px
-    sm: 'size-4', // 16px
+    sm: 'size-4', // 16px  
     md: 'size-4', // 16px
     lg: 'size-5', // 20px
     xl: 'size-6', // 24px
@@ -121,7 +134,10 @@ const getIconSize = (size: string) => {
   return sizeMap[size as keyof typeof sizeMap] || 'size-4'
 }
 
-// Loader icon size mapping
+/**
+ * Get loader icon size class based on button size
+ * Ensures loader matches the button's icon size
+ */
 const getLoaderSize = (size: string) => {
   const sizeMap = {
     xs: 'size-3', // 12px
