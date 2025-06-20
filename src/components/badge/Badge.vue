@@ -115,4 +115,4 @@ const badgeStyle = tv({
   <span :class="badgeStyle({ variant, color, size, rounded })">
     <slot />
   </span>
-</template> 
+</template>

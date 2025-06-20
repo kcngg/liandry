@@ -1,68 +1,68 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
 import Badge from './Badge.vue'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta<typeof Badge> = {
-    title: 'Components/Badge',
-    component: Badge,
-    parameters: {
-        layout: 'centered',
+  title: 'Components/Badge',
+  component: Badge,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    color: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'danger'],
     },
-    tags: ['autodocs'],
-    argTypes: {
-        color: {
-            control: { type: 'select' },
-            options: ['primary', 'secondary', 'danger'],
-        },
-        variant: {
-            control: { type: 'select' },
-            options: ['filled', 'outline', 'ghost'],
-        },
-        size: {
-            control: { type: 'select' },
-            options: ['xs', 'sm', 'md', 'lg'],
-        },
-        rounded: {
-            control: { type: 'boolean' },
-        },
+    variant: {
+      control: { type: 'select' },
+      options: ['filled', 'outline', 'ghost'],
     },
+    size: {
+      control: { type: 'select' },
+      options: ['xs', 'sm', 'md', 'lg'],
+    },
+    rounded: {
+      control: { type: 'boolean' },
+    },
+  },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-    args: {
-        color: 'primary',
-        variant: 'filled',
-        size: 'md',
-        rounded: false,
+  args: {
+    color: 'primary',
+    variant: 'filled',
+    size: 'md',
+    rounded: false,
+  },
+  render: (args) => ({
+    components: { Badge },
+    setup() {
+      return { args }
     },
-    render: (args) => ({
-        components: { Badge },
-        setup() {
-            return { args }
-        },
-        template: '<Badge v-bind="args">Badge</Badge>',
-    }),
+    template: '<Badge v-bind="args">Badge</Badge>',
+  }),
 }
 
 export const Colors: Story = {
-    render: () => ({
-        components: { Badge },
-        template: `
+  render: () => ({
+    components: { Badge },
+    template: `
       <div class="flex gap-4 items-center">
         <Badge color="primary">Primary</Badge>
         <Badge color="secondary">Secondary</Badge>
         <Badge color="danger">Danger</Badge>
       </div>
     `,
-    }),
+  }),
 }
 
 export const Variants: Story = {
-    render: () => ({
-        components: { Badge },
-        template: `
+  render: () => ({
+    components: { Badge },
+    template: `
       <div class="space-y-4">
         <div class="flex gap-4 items-center">
           <Badge variant="filled" color="primary">Filled</Badge>
@@ -81,13 +81,13 @@ export const Variants: Story = {
         </div>
       </div>
     `,
-    }),
+  }),
 }
 
 export const Sizes: Story = {
-    render: () => ({
-        components: { Badge },
-        template: `
+  render: () => ({
+    components: { Badge },
+    template: `
       <div class="flex gap-4 items-center">
         <Badge size="xs">Extra Small</Badge>
         <Badge size="sm">Small</Badge>
@@ -95,26 +95,26 @@ export const Sizes: Story = {
         <Badge size="lg">Large</Badge>
       </div>
     `,
-    }),
+  }),
 }
 
 export const Rounded: Story = {
-    render: () => ({
-        components: { Badge },
-        template: `
+  render: () => ({
+    components: { Badge },
+    template: `
       <div class="flex gap-4 items-center">
         <Badge rounded>Rounded Badge</Badge>
         <Badge rounded color="secondary">Secondary</Badge>
         <Badge rounded color="danger">Danger</Badge>
       </div>
     `,
-    }),
+  }),
 }
 
 export const AllCombinations: Story = {
-    render: () => ({
-        components: { Badge },
-        template: `
+  render: () => ({
+    components: { Badge },
+    template: `
       <div class="space-y-6">
         <div>
           <h3 class="text-lg font-semibold mb-3">Primary</h3>
@@ -189,5 +189,5 @@ export const AllCombinations: Story = {
         </div>
       </div>
     `,
-    }),
-} 
+  }),
+}

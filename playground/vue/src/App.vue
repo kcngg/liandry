@@ -21,7 +21,7 @@ import { Badge, Button } from '@kcngg/liandry'
     <!-- Test Badge with different props -->
     <div class="space-y-4">
       <h2 class="text-xl font-semibold">Badges</h2>
-      
+
       <div class="space-y-2">
         <h3 class="text-lg font-medium">Colors</h3>
         <div class="flex gap-2 items-center">
@@ -64,9 +64,13 @@ import { Badge, Button } from '@kcngg/liandry'
         <div class="space-y-2">
           <div class="flex gap-2 items-center">
             <Badge color="primary" variant="filled" size="xs">Primary XS</Badge>
-            <Badge color="secondary" variant="outline" size="sm">Secondary SM</Badge>
+            <Badge color="secondary" variant="outline" size="sm"
+              >Secondary SM</Badge
+            >
             <Badge color="danger" variant="ghost" size="md">Danger MD</Badge>
-            <Badge color="primary" variant="filled" size="lg" rounded>Primary LG Rounded</Badge>
+            <Badge color="primary" variant="filled" size="lg" rounded
+              >Primary LG Rounded</Badge
+            >
           </div>
         </div>
       </div>
