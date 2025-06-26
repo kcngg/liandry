@@ -51,11 +51,11 @@
     "vue": "^3.0.0"
   },
   "dependencies": {
-    "@iconify/vue": "^5.0.0",
     "reka-ui": "^2.3.1"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.352",
+    "@iconify/vue": "^5.0.0",
     "@storybook/vue3-vite": "^9.0.13",
     "@sxzz/eslint-config": "^7.0.3",
     "@sxzz/prettier-config": "^2.2.1",

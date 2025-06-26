@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [
     Vue(),
     UnoCSS({
-      mode: 'per-module',
       content: {
         pipeline: {
           include: [/\.vue$/, /\.ts$/],

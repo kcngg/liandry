@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LoaderCircle } from 'lucide-vue-next'
+import { Icon } from '@iconify/vue'
 import { tv } from 'tailwind-variants'
 import { computed, inject } from 'vue'
 import {
@@ -170,8 +170,9 @@ const getLoaderSize = (size: string) => {
     :class="buttonStyle({ variant, color, size, asIcon })"
   >
     <!-- Show loader if isLoading is true -->
-    <LoaderCircle
+    <Icon
       v-if="isLoading"
+      icon="svg-spinners:bars-rotate-fade"
       class="animate-spin"
       :class="[
         getLoaderSize(size),
