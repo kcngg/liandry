@@ -2,7 +2,7 @@ import { defineConfig, presetIcons, presetWind4 } from 'unocss'
 import { presetAnimations } from 'unocss-preset-animations'
 
 export default defineConfig({
-  presets: [presetWind4(), presetIcons(), presetAnimations()],
+  presets: [presetAnimations(), presetWind4(), presetIcons()],
   content: {
     pipeline: {
       include: [
