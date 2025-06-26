@@ -1,10 +1,7 @@
 // Button Group Component
 export { default as ButtonGroup } from './ButtonGroup.vue'
-export type { ButtonGroupProps } from './ButtonGroup.vue'
-
-// Types and Constants
-export type { ButtonSize } from './constants'
+export type { ButtonGroupProps, ButtonSize } from './ButtonGroup.vue'
 export {
-    BUTTON_GROUP_CONTEXT_KEY,
-    BUTTON_GROUP_SIZE_KEY,
-} from './constants' 
+  BUTTON_GROUP_CONTEXT_KEY,
+  BUTTON_GROUP_SIZE_KEY,
+} from './ButtonGroup.vue'

@@ -2,8 +2,8 @@
 import { Icon } from '@iconify/vue'
 import { tv } from 'tailwind-variants'
 import { computed, inject } from 'vue'
-import { BUTTON_GROUP_SIZE_KEY } from '../button-group/constants'
-import { type ButtonSize } from './constants'
+import { BUTTON_GROUP_SIZE_KEY } from '../button-group'
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 /**
  * Button component with multiple variants, colors, and sizes
@@ -34,9 +34,7 @@ const {
 const buttonGroupSize = inject(BUTTON_GROUP_SIZE_KEY, null)
 
 // Use group size if available, otherwise use prop size, otherwise default
-const size = computed<ButtonSize>(
-  () => buttonGroupSize || propSize || 'md',
-)
+const size = computed<ButtonSize>(() => buttonGroupSize || propSize || 'md')
 
 const buttonStyle = tv({
   base:

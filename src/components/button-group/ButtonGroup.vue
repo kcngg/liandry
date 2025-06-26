@@ -1,11 +1,19 @@
-<script setup lang="ts">
+<script lang="ts">
 import { tv } from 'tailwind-variants'
-import { provide } from 'vue'
-import {
-  BUTTON_GROUP_CONTEXT_KEY,
-  BUTTON_GROUP_SIZE_KEY,
-  type ButtonSize,
-} from './constants'
+import { provide, type InjectionKey } from 'vue'
+
+/**
+ * ButtonGroup component constants and injection keys
+ */
+
+// Button size type (shared with Button component)
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+
+// Injection keys for ButtonGroup context
+export const BUTTON_GROUP_SIZE_KEY: InjectionKey<ButtonSize> =
+  Symbol('buttonGroupSize')
+export const BUTTON_GROUP_CONTEXT_KEY: InjectionKey<boolean> =
+  Symbol('buttonGroupContext')
 
 /**
  * ButtonGroup component that groups buttons together
@@ -19,7 +27,9 @@ export interface ButtonGroupProps {
   /** Whether buttons should be attached (no gap) */
   attached?: boolean
 }
+</script>
 
+<script setup lang="ts">
 const {
   size = 'md',
   orientation = 'horizontal',

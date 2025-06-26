@@ -9,4 +9,4 @@ export { default as Section } from './components/layout/Section.vue'
 export { default as Container } from './components/layout/Container.vue'
 
 // Types and Constants
-export type { ButtonSize } from './components/button/constants'
+export type { ButtonSize } from './components/button'
