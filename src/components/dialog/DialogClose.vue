@@ -6,7 +6,7 @@ const props = defineProps<ButtonProps>()
 </script>
 
 <template>
-  <DialogClose>
+  <DialogClose as-child>
     <Button v-bind="useForwardProps(props)">
       <slot />
     </Button>

@@ -1,4 +1,5 @@
 import { Button } from '@/components/button'
+import DialogFooter from '@/components/dialog/DialogFooter.vue'
 import Stack from '@/components/layout/Stack.vue'
 import {
   DialogClose,
@@ -44,6 +45,7 @@ export const Basic: Story = {
       DialogOverlay,
       DialogContent,
       DialogTitle,
+      DialogFooter,
       DialogDescription,
       DialogClose,
       Button,
@@ -57,7 +59,17 @@ export const Basic: Story = {
         <DialogPortal>
           <DialogOverlay />
           <DialogContent>
-           
+            <Stack gap="4">
+              <DialogTitle>Dialog Title</DialogTitle>
+              <DialogDescription>
+                This is a description of the dialog. It provides additional context or information.
+              </DialogDescription>
+              <DialogFooter>
+                <DialogClose>
+                  Close
+                </DialogClose>
+              </DialogFooter>
+            </Stack>
           </DialogContent>
         </DialogPortal>
       </DialogRoot>

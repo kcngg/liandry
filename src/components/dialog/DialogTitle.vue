@@ -3,7 +3,7 @@ import { DialogTitle } from 'reka-ui'
 </script>
 
 <template>
-  <DialogTitle>
+  <DialogTitle class="text-white">
     <slot />
   </DialogTitle>
 </template>
