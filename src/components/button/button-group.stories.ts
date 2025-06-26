@@ -1,6 +1,6 @@
 import Button from './Button.vue'
 import ButtonGroup from './ButtonGroup.vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'Components/ButtonGroup',
