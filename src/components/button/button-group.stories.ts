@@ -1,6 +1,6 @@
+import Section from '@/components/layout/Section.vue'
 import Button from './Button.vue'
 import ButtonGroup from './ButtonGroup.vue'
-import Section from '@/components/layout/Section.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof ButtonGroup> = {

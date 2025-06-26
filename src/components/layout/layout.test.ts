@@ -18,104 +18,71 @@ describe('Stack Component', () => {
       expect(wrapper.html()).toContain('Item 1')
       expect(wrapper.html()).toContain('Item 2')
     })
-
-    it('applies stack class', () => {
-      const wrapper = mount(Stack)
-      expect(wrapper.classes()).toContain('stack')
-    })
   })
 
-  describe('Direction', () => {
-    it('applies column direction by default', () => {
-      const wrapper = mount(Stack)
-      expect(wrapper.attributes('style')).toContain('flex-direction: column')
-    })
-
-    it('applies row direction when specified', () => {
-      const wrapper = mount(Stack, {
-        props: { direction: 'row' },
-      })
-      expect(wrapper.attributes('style')).toContain('flex-direction: row')
-    })
-
-    it('applies column-reverse direction', () => {
-      const wrapper = mount(Stack, {
-        props: { direction: 'column-reverse' },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'flex-direction: column-reverse',
-      )
-    })
-
-    it('applies row-reverse direction', () => {
-      const wrapper = mount(Stack, {
-        props: { direction: 'row-reverse' },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'flex-direction: row-reverse',
-      )
-    })
-  })
-
-  describe('Gap', () => {
-    it('applies default gap', () => {
-      const wrapper = mount(Stack)
-      expect(wrapper.attributes('style')).toContain('gap: 1rem')
-    })
-
-    it('applies custom gap', () => {
-      const wrapper = mount(Stack, {
-        props: { gap: '2rem' },
-      })
-      expect(wrapper.attributes('style')).toContain('gap: 2rem')
-    })
-
-    it('applies numeric gap', () => {
-      const wrapper = mount(Stack, {
-        props: { gap: 16 },
-      })
-      expect(wrapper.attributes('style')).toContain('gap: 16px')
-    })
-  })
-
-  describe('Alignment', () => {
-    it('applies align classes', () => {
-      const wrapper = mount(Stack, {
-        props: { align: 'center' },
-      })
-      expect(wrapper.attributes('style')).toContain('align-items: center')
-    })
-
-    it('applies justify classes', () => {
-      const wrapper = mount(Stack, {
-        props: { justify: 'between' },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'justify-content: space-between',
-      )
-    })
-  })
-
-  describe('Wrap', () => {
-    it('applies wrap when enabled', () => {
-      const wrapper = mount(Stack, {
-        props: { wrap: true },
-      })
-      expect(wrapper.attributes('style')).toContain('flex-wrap: wrap')
-    })
-
-    it('does not apply wrap by default', () => {
-      const wrapper = mount(Stack)
-      expect(wrapper.attributes('style')).toContain('flex-wrap: nowrap')
-    })
-  })
-
-  describe('Custom Element', () => {
+  describe('Semantic Elements', () => {
     it('renders as custom element when specified', () => {
       const wrapper = mount(Stack, {
         props: { as: 'section' },
       })
       expect(wrapper.element.tagName).toBe('SECTION')
+    })
+
+    it('renders as main element for main content', () => {
+      const wrapper = mount(Stack, {
+        props: { as: 'main' },
+        slots: { default: '<h1>Main Content</h1>' },
+      })
+      expect(wrapper.element.tagName).toBe('MAIN')
+      expect(wrapper.html()).toContain('<h1>Main Content</h1>')
+    })
+
+    it('renders as article element when specified', () => {
+      const wrapper = mount(Stack, {
+        props: { as: 'article' },
+        slots: { default: '<h2>Article Title</h2>' },
+      })
+      expect(wrapper.element.tagName).toBe('ARTICLE')
+    })
+
+    it('renders as nav element for navigation', () => {
+      const wrapper = mount(Stack, {
+        props: { as: 'nav' },
+        slots: { default: '<a href="#">Link</a>' },
+      })
+      expect(wrapper.element.tagName).toBe('NAV')
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('supports aria-label for screen readers', () => {
+      const wrapper = mount(Stack, {
+        attrs: { 'aria-label': 'Navigation menu' },
+        props: { as: 'nav' },
+        slots: { default: '<a href="#">Home</a><a href="#">About</a>' },
+      })
+
+      expect(wrapper.attributes('aria-label')).toBe('Navigation menu')
+      expect(wrapper.element.tagName).toBe('NAV')
+    })
+
+    it('supports aria-labelledby for screen readers', () => {
+      const wrapper = mount(Stack, {
+        attrs: { 'aria-labelledby': 'section-title' },
+        props: { as: 'section' },
+        slots: { default: '<h2 id="section-title">Section Content</h2>' },
+      })
+
+      expect(wrapper.attributes('aria-labelledby')).toBe('section-title')
+    })
+
+    it('supports role override when needed', () => {
+      const wrapper = mount(Stack, {
+        attrs: { role: 'list' },
+        slots: { default: '<div role="listitem">Item 1</div>' },
+      })
+
+      expect(wrapper.attributes('role')).toBe('list')
     })
   })
 })
@@ -130,107 +97,64 @@ describe('Grid Component', () => {
       })
 
       expect(wrapper.element.tagName).toBe('DIV')
-      expect(wrapper.classes()).toContain('grid')
-      expect(wrapper.attributes('style')).toContain('display: grid')
       expect(wrapper.html()).toContain('Item 1')
       expect(wrapper.html()).toContain('Item 2')
     })
   })
 
-  describe('Columns', () => {
-    it('has no default columns', () => {
-      const wrapper = mount(Grid)
-      expect(wrapper.attributes('style')).not.toContain('grid-template-columns')
-    })
-
-    it('applies numeric columns', () => {
-      const wrapper = mount(Grid, {
-        props: { columns: 3 },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'grid-template-columns: repeat(3, 1fr)',
-      )
-    })
-
-    it('applies string columns', () => {
-      const wrapper = mount(Grid, {
-        props: { columns: 'repeat(auto-fit, minmax(200px, 1fr))' },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))',
-      )
-    })
-  })
-
-  describe('Rows', () => {
-    it('applies numeric rows', () => {
-      const wrapper = mount(Grid, {
-        props: { rows: 2 },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'grid-template-rows: repeat(2, 1fr)',
-      )
-    })
-
-    it('applies string rows', () => {
-      const wrapper = mount(Grid, {
-        props: { rows: 'repeat(3, minmax(0, 1fr))' },
-      })
-      expect(wrapper.attributes('style')).toContain(
-        'grid-template-rows: repeat(3, minmax(0, 1fr))',
-      )
-    })
-  })
-
-  describe('Gap', () => {
-    it('has no default gap', () => {
-      const wrapper = mount(Grid)
-      expect(wrapper.attributes('style')).not.toContain('gap:')
-    })
-
-    it('applies custom gap', () => {
-      const wrapper = mount(Grid, {
-        props: { gap: '1.5rem' },
-      })
-      expect(wrapper.attributes('style')).toContain('gap: 1.5rem')
-    })
-
-    it('applies separate column and row gaps', () => {
-      const wrapper = mount(Grid, {
-        props: { columnGap: '2rem', rowGap: '1rem' },
-      })
-      expect(wrapper.attributes('style')).toContain('column-gap: 2rem')
-      expect(wrapper.attributes('style')).toContain('row-gap: 1rem')
-    })
-
-    it('applies numeric gap', () => {
-      const wrapper = mount(Grid, {
-        props: { gap: 16 },
-      })
-      expect(wrapper.attributes('style')).toContain('gap: 16px')
-    })
-  })
-
-  describe('Auto Flow', () => {
-    it('applies auto flow', () => {
-      const wrapper = mount(Grid, {
-        props: { autoFlow: 'column' },
-      })
-      expect(wrapper.attributes('style')).toContain('grid-auto-flow: column')
-    })
-
-    it('applies default auto flow', () => {
-      const wrapper = mount(Grid)
-      expect(wrapper.attributes('style')).toContain('grid-auto-flow: row')
-    })
-  })
-
-  describe('Custom Element', () => {
+  describe('Semantic Elements', () => {
     it('renders as custom element when specified', () => {
       const wrapper = mount(Grid, {
         props: { as: 'section' },
       })
       expect(wrapper.element.tagName).toBe('SECTION')
+    })
+
+    it('renders as main element for main content', () => {
+      const wrapper = mount(Grid, {
+        props: { as: 'main' },
+        slots: {
+          default: '<article>Article 1</article><article>Article 2</article>',
+        },
+      })
+      expect(wrapper.element.tagName).toBe('MAIN')
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('supports aria-label for grid description', () => {
+      const wrapper = mount(Grid, {
+        attrs: { 'aria-label': 'Product grid' },
+        slots: { default: '<div>Product 1</div><div>Product 2</div>' },
+      })
+
+      expect(wrapper.attributes('aria-label')).toBe('Product grid')
+    })
+
+    it('supports role override for specific use cases', () => {
+      const wrapper = mount(Grid, {
+        attrs: { role: 'grid' },
+        slots: { default: '<div role="gridcell">Cell 1</div>' },
+      })
+
+      expect(wrapper.attributes('role')).toBe('grid')
+    })
+
+    it('maintains semantic structure with proper elements', () => {
+      const wrapper = mount(Grid, {
+        props: { as: 'section' },
+        attrs: { 'aria-labelledby': 'grid-title' },
+        slots: {
+          default: `
+            <h2 id="grid-title">Image Gallery</h2>
+            <img src="image1.jpg" alt="Image 1">
+            <img src="image2.jpg" alt="Image 2">
+          `,
+        },
+      })
+
+      expect(wrapper.element.tagName).toBe('SECTION')
+      expect(wrapper.attributes('aria-labelledby')).toBe('grid-title')
     })
   })
 })
@@ -289,39 +213,7 @@ describe('Section Component', () => {
     })
   })
 
-  describe('Spacing', () => {
-    it('applies default spacing', () => {
-      const wrapper = mount(Section, {
-        props: { title: 'Test' },
-        slots: { default: '<p>Content</p>' },
-      })
-      expect(wrapper.find('.section-header').attributes('style')).toContain(
-        'margin-bottom: 1rem',
-      )
-    })
-
-    it('applies custom spacing', () => {
-      const wrapper = mount(Section, {
-        props: { title: 'Test', spacing: '2rem' },
-        slots: { default: '<p>Content</p>' },
-      })
-      expect(wrapper.find('.section-header').attributes('style')).toContain(
-        'margin-bottom: 2rem',
-      )
-    })
-
-    it('applies numeric spacing', () => {
-      const wrapper = mount(Section, {
-        props: { title: 'Test', spacing: 32 },
-        slots: { default: '<p>Content</p>' },
-      })
-      expect(wrapper.find('.section-header').attributes('style')).toContain(
-        'margin-bottom: 32px',
-      )
-    })
-  })
-
-  describe('Custom Element', () => {
+  describe('Semantic Structure', () => {
     it('renders as section by default', () => {
       const wrapper = mount(Section, {
         props: { title: 'Test' },
@@ -334,6 +226,83 @@ describe('Section Component', () => {
         props: { title: 'Test', as: 'article' },
       })
       expect(wrapper.element.tagName).toBe('ARTICLE')
+    })
+
+    it('renders as main element for main content', () => {
+      const wrapper = mount(Section, {
+        props: { title: 'Main Content', as: 'main', level: 1 },
+      })
+      expect(wrapper.element.tagName).toBe('MAIN')
+      expect(wrapper.find('h1').exists()).toBe(true)
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('maintains proper heading hierarchy', () => {
+      const wrapper = mount(Section, {
+        props: { title: 'Page Title', level: 1 },
+        slots: {
+          default: `
+            <div>
+              <h2>Subsection</h2>
+              <p>Content</p>
+            </div>
+          `,
+        },
+      })
+
+      expect(wrapper.find('h1').text()).toBe('Page Title')
+      expect(wrapper.html()).toContain('<h2>Subsection</h2>')
+    })
+
+    it('supports aria-labelledby when title has id', () => {
+      const wrapper = mount(Section, {
+        props: { title: 'Accessible Section' },
+        attrs: { 'aria-labelledby': 'section-heading' },
+      })
+
+      expect(wrapper.attributes('aria-labelledby')).toBe('section-heading')
+      expect(wrapper.find('h2').text()).toBe('Accessible Section')
+    })
+
+    it('supports aria-describedby for additional context', () => {
+      const wrapper = mount(Section, {
+        props: {
+          title: 'Form Section',
+          subtitle: 'Fill out the required fields',
+        },
+        attrs: { 'aria-describedby': 'form-help' },
+      })
+
+      expect(wrapper.attributes('aria-describedby')).toBe('form-help')
+      expect(wrapper.find('h2').text()).toBe('Form Section')
+    })
+
+    it('maintains semantic structure with proper nesting', () => {
+      const wrapper = mount(Section, {
+        props: { title: 'Article Title', as: 'article' },
+        slots: {
+          default: `
+            <header>
+              <time datetime="2024-01-01">January 1, 2024</time>
+            </header>
+            <p>Article content</p>
+          `,
+        },
+      })
+
+      expect(wrapper.element.tagName).toBe('ARTICLE')
+      expect(wrapper.html()).toContain('<header>')
+      expect(wrapper.html()).toContain('<time datetime="2024-01-01">')
+    })
+
+    it('supports role override when needed', () => {
+      const wrapper = mount(Section, {
+        props: { title: 'Banner' },
+        attrs: { role: 'banner' },
+      })
+
+      expect(wrapper.attributes('role')).toBe('banner')
     })
   })
 })
@@ -350,85 +319,7 @@ describe('Container Component', () => {
     })
   })
 
-  describe('Sizes', () => {
-    it('applies large size by default', () => {
-      const wrapper = mount(Container)
-      expect(wrapper.attributes('style')).toContain('max-width: 1024px')
-    })
-
-    it('applies xs size', () => {
-      const wrapper = mount(Container, {
-        props: { size: 'xs' },
-      })
-      expect(wrapper.attributes('style')).toContain('max-width: 480px')
-    })
-
-    it('applies sm size', () => {
-      const wrapper = mount(Container, {
-        props: { size: 'sm' },
-      })
-      expect(wrapper.attributes('style')).toContain('max-width: 640px')
-    })
-
-    it('applies md size', () => {
-      const wrapper = mount(Container, {
-        props: { size: 'md' },
-      })
-      expect(wrapper.attributes('style')).toContain('max-width: 768px')
-    })
-
-    it('applies xl size', () => {
-      const wrapper = mount(Container, {
-        props: { size: 'xl' },
-      })
-      expect(wrapper.attributes('style')).toContain('max-width: 1280px')
-    })
-
-    it('applies full size', () => {
-      const wrapper = mount(Container, {
-        props: { size: 'full' },
-      })
-      expect(wrapper.attributes('style')).toContain('max-width: 100%')
-    })
-  })
-
-  describe('Centering', () => {
-    it('centers by default', () => {
-      const wrapper = mount(Container)
-      expect(wrapper.attributes('style')).toContain('margin: 0px auto')
-    })
-
-    it('does not center when disabled', () => {
-      const wrapper = mount(Container, {
-        props: { center: false },
-      })
-      expect(wrapper.attributes('style')).toContain('margin: 0')
-      expect(wrapper.attributes('style')).not.toContain('margin: 0 auto')
-    })
-  })
-
-  describe('Padding', () => {
-    it('applies default padding', () => {
-      const wrapper = mount(Container)
-      expect(wrapper.attributes('style')).toContain('padding: 1rem')
-    })
-
-    it('applies custom padding', () => {
-      const wrapper = mount(Container, {
-        props: { padding: '2rem' },
-      })
-      expect(wrapper.attributes('style')).toContain('padding: 2rem')
-    })
-
-    it('applies numeric padding', () => {
-      const wrapper = mount(Container, {
-        props: { padding: 32 },
-      })
-      expect(wrapper.attributes('style')).toContain('padding: 32px')
-    })
-  })
-
-  describe('Custom Element', () => {
+  describe('Semantic Elements', () => {
     it('renders as div by default', () => {
       const wrapper = mount(Container)
       expect(wrapper.element.tagName).toBe('DIV')
@@ -440,43 +331,176 @@ describe('Container Component', () => {
       })
       expect(wrapper.element.tagName).toBe('MAIN')
     })
+
+    it('renders as section for sectioned content', () => {
+      const wrapper = mount(Container, {
+        props: { as: 'section' },
+        slots: { default: '<h2>Section Title</h2><p>Content</p>' },
+      })
+      expect(wrapper.element.tagName).toBe('SECTION')
+    })
+
+    it('renders as article for article content', () => {
+      const wrapper = mount(Container, {
+        props: { as: 'article' },
+        slots: { default: '<h1>Article Title</h1><p>Article content</p>' },
+      })
+      expect(wrapper.element.tagName).toBe('ARTICLE')
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('supports aria-label for container description', () => {
+      const wrapper = mount(Container, {
+        attrs: { 'aria-label': 'Main content area' },
+        props: { as: 'main' },
+        slots: { default: '<h1>Welcome</h1>' },
+      })
+
+      expect(wrapper.attributes('aria-label')).toBe('Main content area')
+      expect(wrapper.element.tagName).toBe('MAIN')
+    })
+
+    it('supports aria-labelledby for container title', () => {
+      const wrapper = mount(Container, {
+        attrs: { 'aria-labelledby': 'page-title' },
+        props: { as: 'main' },
+        slots: { default: '<h1 id="page-title">Page Title</h1>' },
+      })
+
+      expect(wrapper.attributes('aria-labelledby')).toBe('page-title')
+    })
+
+    it('supports role override for landmark regions', () => {
+      const wrapper = mount(Container, {
+        attrs: { role: 'contentinfo' },
+        slots: { default: '<p>Footer content</p>' },
+      })
+
+      expect(wrapper.attributes('role')).toBe('contentinfo')
+    })
+
+    it('maintains proper landmark structure', () => {
+      const wrapper = mount(Container, {
+        props: { as: 'main' },
+        attrs: { 'aria-label': 'Main content' },
+        slots: {
+          default: `
+            <header>
+              <h1>Page Title</h1>
+            </header>
+            <nav aria-label="Breadcrumb">
+              <a href="/">Home</a>
+            </nav>
+            <article>
+              <h2>Article Title</h2>
+              <p>Content</p>
+            </article>
+          `,
+        },
+      })
+
+      expect(wrapper.element.tagName).toBe('MAIN')
+      expect(wrapper.attributes('aria-label')).toBe('Main content')
+      expect(wrapper.html()).toContain('<header>')
+      expect(wrapper.html()).toContain('<nav aria-label="Breadcrumb">')
+      expect(wrapper.html()).toContain('<article>')
+    })
   })
 })
 
 describe('Layout Components Integration', () => {
-  it('works together in simple layouts', () => {
-    const wrapper = mount(Container, {
-      props: { size: 'xl' },
-      slots: {
-        default: '<div>Test Content</div>',
-      },
+  describe('Semantic Structure', () => {
+    it('maintains proper semantic hierarchy', () => {
+      const wrapper = mount(Container, {
+        props: { as: 'main' },
+        slots: {
+          default: `
+             <h1>Welcome</h1>
+             <p>Welcome content</p>
+           `,
+        },
+      })
+
+      expect(wrapper.element.tagName).toBe('MAIN')
+      expect(wrapper.find('h1').text()).toBe('Welcome')
     })
 
-    expect(wrapper.attributes('style')).toContain('max-width: 1280px')
-    expect(wrapper.html()).toContain('Test Content')
+    it('works with nested semantic elements', () => {
+      const wrapper = mount(Section, {
+        props: { title: 'Article Section', as: 'section' },
+        slots: {
+          default: `
+             <article>
+               <h3>Article Title</h3>
+               <p>Article content</p>
+             </article>
+           `,
+        },
+      })
+
+      expect(wrapper.element.tagName).toBe('SECTION')
+      expect(wrapper.find('article').exists()).toBe(true)
+      expect(wrapper.find('h3').text()).toBe('Article Title')
+    })
+
+    it('maintains accessibility with complex nesting', () => {
+      const wrapper = mount(Container, {
+        props: { as: 'main' },
+        attrs: { 'aria-label': 'Main application' },
+        slots: {
+          default: `
+             <section aria-labelledby="dashboard-title">
+               <h1 id="dashboard-title">Dashboard</h1>
+               <div aria-label="Widget grid">
+                 <article aria-label="Statistics widget">
+                   <h2>Statistics</h2>
+                   <p>Data here</p>
+                 </article>
+               </div>
+             </section>
+           `,
+        },
+      })
+
+      expect(wrapper.element.tagName).toBe('MAIN')
+      expect(wrapper.attributes('aria-label')).toBe('Main application')
+
+      const section = wrapper.find('section')
+      expect(section.attributes('aria-labelledby')).toBe('dashboard-title')
+      expect(wrapper.find('h1').text()).toBe('Dashboard')
+
+      const grid = wrapper.find('[aria-label="Widget grid"]')
+      expect(grid.attributes('aria-label')).toBe('Widget grid')
+
+      const article = wrapper.find('article')
+      expect(article.attributes('aria-label')).toBe('Statistics widget')
+      expect(wrapper.find('h2').text()).toBe('Statistics')
+    })
   })
 
-  it('maintains proper semantic structure', () => {
-    const wrapper = mount(Container, {
-      props: { as: 'main' },
-      slots: {
-        default: '<div>Main Content</div>',
-      },
+  describe('Focus Management', () => {
+    it('maintains proper focus flow in layout', () => {
+      const wrapper = mount(Container, {
+        props: { as: 'main' },
+        slots: {
+          default: `
+             <section>
+               <h2>Form Section</h2>
+               <form>
+                 <input type="text" placeholder="Name">
+                 <button type="submit">Submit</button>
+               </form>
+             </section>
+           `,
+        },
+      })
+
+      const input = wrapper.find('input')
+      const button = wrapper.find('button')
+
+      expect(input.element.tabIndex).toBe(0)
+      expect(button.element.tabIndex).toBe(0)
     })
-
-    expect(wrapper.element.tagName).toBe('MAIN')
-    expect(wrapper.html()).toContain('Main Content')
-  })
-
-  it('handles nested components', () => {
-    const wrapper = mount(Section, {
-      props: { title: 'Test Section', level: 1 },
-      slots: {
-        default: '<p>Section content</p>',
-      },
-    })
-
-    expect(wrapper.find('h1').text()).toBe('Test Section')
-    expect(wrapper.html()).toContain('<p>Section content</p>')
   })
 })

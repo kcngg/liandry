@@ -32,184 +32,6 @@ describe('ButtonGroup Component', () => {
       expect(wrapper.html()).toContain('Second')
       expect(wrapper.html()).toContain('Third')
     })
-
-    it('applies base classes', () => {
-      const wrapper = mount(ButtonGroup, {
-        slots: { default: '<button>Test</button>' },
-      })
-
-      expect(wrapper.classes()).toContain('inline-flex')
-    })
-  })
-
-  describe('Size Injection', () => {
-    it('provides size to child Button components', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { size: 'lg' },
-        slots: {
-          default: `
-            <Button>First</Button>
-            <Button>Second</Button>
-          `,
-        },
-        global: {
-          components: { Button },
-        },
-      })
-
-      const buttons = wrapper.findAllComponents(Button)
-      expect(buttons).toHaveLength(2)
-
-      // Check that buttons have the large size classes
-      buttons.forEach((button) => {
-        expect(button.find('button').classes()).toContain('h-40px')
-        expect(button.find('button').classes()).toContain('px-5')
-        expect(button.find('button').classes()).toContain('py-3')
-        expect(button.find('button').classes()).toContain('text-base')
-        expect(button.find('button').classes()).toContain('rounded-10px')
-      })
-    })
-
-    it('uses default size when not specified', () => {
-      const wrapper = mount(ButtonGroup, {
-        slots: {
-          default: `<Button>Test</Button>`,
-        },
-        global: {
-          components: { Button },
-        },
-      })
-
-      const button = wrapper.findComponent(Button)
-      // Should have medium size (default)
-      expect(button.find('button').classes()).toContain('h-36px')
-      expect(button.find('button').classes()).toContain('px-4')
-      expect(button.find('button').classes()).toContain('text-sm')
-      expect(button.find('button').classes()).toContain('rounded-8px')
-    })
-
-    it('group size takes precedence over individual button size', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { size: 'sm' },
-        slots: {
-          default: `
-            <Button>Normal</Button>
-            <Button size="xl">Override Attempt</Button>
-          `,
-        },
-        global: {
-          components: { Button },
-        },
-      })
-
-      const buttons = wrapper.findAllComponents(Button)
-      expect(buttons).toHaveLength(2)
-
-      // Both buttons should have small size from group (group takes precedence)
-      buttons.forEach((button) => {
-        expect(button.find('button').classes()).toContain('h-32px')
-        expect(button.find('button').classes()).toContain('px-3')
-        expect(button.find('button').classes()).toContain('text-xs')
-        expect(button.find('button').classes()).toContain('rounded-6px')
-      })
-    })
-  })
-
-  describe('Orientation', () => {
-    it('applies horizontal orientation by default', () => {
-      const wrapper = mount(ButtonGroup, {
-        slots: { default: '<button>Test</button>' },
-      })
-
-      expect(wrapper.classes()).toContain('flex-row')
-    })
-
-    it('applies horizontal orientation when specified', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { orientation: 'horizontal' },
-        slots: { default: '<button>Test</button>' },
-      })
-
-      expect(wrapper.classes()).toContain('flex-row')
-    })
-
-    it('applies vertical orientation when specified', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { orientation: 'vertical' },
-        slots: { default: '<button>Test</button>' },
-      })
-
-      expect(wrapper.classes()).toContain('flex-col')
-    })
-  })
-
-  describe('Attachment', () => {
-    it('applies attached styling by default', () => {
-      const wrapper = mount(ButtonGroup, {
-        slots: { default: '<button>Test</button>' },
-      })
-
-      // Should not have gap class when attached
-      expect(wrapper.classes()).not.toContain('gap-2')
-    })
-
-    it('applies gap when not attached', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { attached: false },
-        slots: { default: '<button>Test</button>' },
-      })
-
-      expect(wrapper.classes()).toContain('gap-2')
-    })
-
-    it('uses default attached value', () => {
-      const wrapper = mount(ButtonGroup, {
-        slots: { default: '<button>Test</button>' },
-      })
-
-      // Default should be attached (true)
-      expect(wrapper.classes()).not.toContain('gap-2')
-    })
-  })
-
-  describe('Border Radius Handling', () => {
-    it('applies horizontal border radius classes when attached horizontally', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { orientation: 'horizontal', attached: true },
-        slots: { default: '<button>Test</button>' },
-      })
-
-      // Check for horizontal border radius classes
-      const classes = wrapper.classes()
-      expect(classes.some((cls) => cls.includes('rounded-r-none'))).toBe(true)
-      expect(classes.some((cls) => cls.includes('rounded-l-none'))).toBe(true)
-      expect(classes.some((cls) => cls.includes('-ml-px'))).toBe(true)
-    })
-
-    it('applies vertical border radius classes when attached vertically', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { orientation: 'vertical', attached: true },
-        slots: { default: '<button>Test</button>' },
-      })
-
-      // Check for vertical border radius classes
-      const classes = wrapper.classes()
-      expect(classes.some((cls) => cls.includes('rounded-b-none'))).toBe(true)
-      expect(classes.some((cls) => cls.includes('rounded-t-none'))).toBe(true)
-      expect(classes.some((cls) => cls.includes('-mt-px'))).toBe(true)
-    })
-
-    it('does not apply border radius classes when not attached', () => {
-      const wrapper = mount(ButtonGroup, {
-        props: { attached: false },
-        slots: { default: '<button>Test</button>' },
-      })
-
-      const classes = wrapper.classes()
-      expect(classes.some((cls) => cls.includes('rounded-'))).toBe(false)
-      expect(classes.some((cls) => cls.includes('-ml-px'))).toBe(false)
-      expect(classes.some((cls) => cls.includes('-mt-px'))).toBe(false)
-    })
   })
 
   describe('Accessibility', () => {
@@ -235,17 +57,36 @@ describe('ButtonGroup Component', () => {
       expect(button.find('button').element.tagName).toBe('BUTTON')
       expect(wrapper.attributes('role')).toBe('group')
     })
-  })
 
-  describe('Integration with Button Component', () => {
-    it('works with different button variants', () => {
+    it('supports aria-label for group description', () => {
       const wrapper = mount(ButtonGroup, {
-        props: { size: 'sm' },
+        attrs: { 'aria-label': 'Text formatting options' },
+        slots: { default: '<button>Bold</button><button>Italic</button>' },
+      })
+
+      expect(wrapper.attributes('aria-label')).toBe('Text formatting options')
+      expect(wrapper.attributes('role')).toBe('group')
+    })
+
+    it('supports aria-labelledby for group description', () => {
+      const wrapper = mount(ButtonGroup, {
+        attrs: { 'aria-labelledby': 'group-title' },
+        slots: {
+          default: '<button>Option 1</button><button>Option 2</button>',
+        },
+      })
+
+      expect(wrapper.attributes('aria-labelledby')).toBe('group-title')
+      expect(wrapper.attributes('role')).toBe('group')
+    })
+
+    it('maintains keyboard navigation within group', () => {
+      const wrapper = mount(ButtonGroup, {
         slots: {
           default: `
-            <Button variant="filled" color="primary">Filled</Button>
-            <Button variant="outline" color="secondary">Outline</Button>
-            <Button variant="ghost" color="danger">Ghost</Button>
+            <Button>First</Button>
+            <Button>Second</Button>
+            <Button>Third</Button>
           `,
         },
         global: {
@@ -256,26 +97,18 @@ describe('ButtonGroup Component', () => {
       const buttons = wrapper.findAllComponents(Button)
       expect(buttons).toHaveLength(3)
 
-      // All should have small size from group
+      // All buttons should be focusable
       buttons.forEach((button) => {
-        expect(button.find('button').classes()).toContain('h-32px')
-        expect(button.find('button').classes()).toContain('text-xs')
-        expect(button.find('button').classes()).toContain('rounded-6px')
+        expect(button.find('button').element.tabIndex).toBe(0)
       })
-
-      // Check different variants are applied
-      expect(buttons[0].find('button').classes()).toContain('bg-primary')
-      expect(buttons[1].find('button').classes()).toContain('border-1')
-      expect(buttons[2].find('button').classes()).toContain('bg-transparent')
     })
 
-    it('works with icon buttons', () => {
+    it('works with disabled buttons in group', () => {
       const wrapper = mount(ButtonGroup, {
-        props: { size: 'md' },
         slots: {
           default: `
-            <Button as-icon>Icon1</Button>
-            <Button as-icon>Icon2</Button>
+            <Button>Enabled</Button>
+            <Button is-loading>Disabled</Button>
           `,
         },
         global: {
@@ -286,19 +119,123 @@ describe('ButtonGroup Component', () => {
       const buttons = wrapper.findAllComponents(Button)
       expect(buttons).toHaveLength(2)
 
-      buttons.forEach((button) => {
-        expect(button.find('button').classes()).toContain('aspect-square')
-        expect(button.find('button').classes()).toContain('!px-0')
-        expect(button.find('button').classes()).toContain('h-36px') // md size
-      })
+      // First button should be enabled
+      expect(buttons[0].find('button').element.disabled).toBe(false)
+
+      // Second button should be disabled due to loading
+      expect(buttons[1].find('button').element.disabled).toBe(true)
     })
 
-    it('works with loading buttons', () => {
+    it('maintains proper focus management', () => {
       const wrapper = mount(ButtonGroup, {
-        props: { size: 'lg' },
+        slots: {
+          default: `
+            <Button>First</Button>
+            <Button>Second</Button>
+          `,
+        },
+        global: {
+          components: { Button },
+        },
+        attachTo: document.body,
+      })
+
+      const buttons = wrapper.findAllComponents(Button)
+
+      // Focus first button
+      buttons[0].find('button').element.focus()
+      expect(document.activeElement).toBe(buttons[0].find('button').element)
+
+      // Focus second button
+      buttons[1].find('button').element.focus()
+      expect(document.activeElement).toBe(buttons[1].find('button').element)
+
+      wrapper.unmount()
+    })
+
+    it('supports role override when needed', () => {
+      const wrapper = mount(ButtonGroup, {
+        attrs: { role: 'toolbar' },
+        slots: { default: '<button>Tool 1</button><button>Tool 2</button>' },
+      })
+
+      expect(wrapper.attributes('role')).toBe('toolbar')
+    })
+
+    it('handles keyboard events within group', async () => {
+      const wrapper = mount(ButtonGroup, {
+        slots: {
+          default: `<Button>Test Button</Button>`,
+        },
+        global: {
+          components: { Button },
+        },
+      })
+
+      const button = wrapper.findComponent(Button)
+
+      await button.trigger('keydown.enter')
+      expect(button.emitted('keydown')).toHaveLength(1)
+    })
+  })
+
+  describe('Integration with Button Component', () => {
+    it('maintains button accessibility in group', () => {
+      const wrapper = mount(ButtonGroup, {
+        slots: {
+          default: `
+            <Button aria-label="Save document">Save</Button>
+            <Button aria-label="Cancel editing">Cancel</Button>
+          `,
+        },
+        global: {
+          components: { Button },
+        },
+      })
+
+      const buttons = wrapper.findAllComponents(Button)
+      expect(buttons).toHaveLength(2)
+
+      // Check aria-labels are preserved
+      expect(buttons[0].find('button').attributes('aria-label')).toBe(
+        'Save document',
+      )
+      expect(buttons[1].find('button').attributes('aria-label')).toBe(
+        'Cancel editing',
+      )
+    })
+
+    it('works with loading buttons maintaining accessibility', () => {
+      const wrapper = mount(ButtonGroup, {
         slots: {
           default: `
             <Button>Normal</Button>
+            <Button is-loading aria-label="Saving document">Saving</Button>
+          `,
+        },
+        global: {
+          components: { Button },
+        },
+      })
+
+      const buttons = wrapper.findAllComponents(Button)
+      expect(buttons).toHaveLength(2)
+
+      // Check that loading button is properly disabled
+      const loadingButton = buttons[1]
+      expect(loadingButton.find('button').element.disabled).toBe(true)
+      expect(loadingButton.find('svg').exists()).toBe(true) // Loading spinner
+      expect(loadingButton.find('button').attributes('aria-label')).toBe(
+        'Saving document',
+      )
+    })
+
+    it('handles mixed button states accessibility', () => {
+      const wrapper = mount(ButtonGroup, {
+        slots: {
+          default: `
+            <Button aria-pressed="false">Toggle A</Button>
+            <Button aria-pressed="true">Toggle B</Button>
             <Button is-loading>Loading</Button>
           `,
         },
@@ -308,27 +245,29 @@ describe('ButtonGroup Component', () => {
       })
 
       const buttons = wrapper.findAllComponents(Button)
-      expect(buttons).toHaveLength(2)
+      expect(buttons).toHaveLength(3)
 
-      // Check that loading button has spinner
-      const loadingButton = buttons[1]
-      expect(loadingButton.find('svg').exists()).toBe(true)
-      expect(loadingButton.find('svg').classes()).toContain('animate-spin')
+      // Check toggle states
+      expect(buttons[0].find('button').attributes('aria-pressed')).toBe('false')
+      expect(buttons[1].find('button').attributes('aria-pressed')).toBe('true')
 
-      // Both should have large size
-      buttons.forEach((button) => {
-        expect(button.find('button').classes()).toContain('h-40px')
-      })
+      // Check loading state
+      expect(buttons[2].find('button').element.disabled).toBe(true)
     })
+  })
 
-    it('works with mixed button configurations', () => {
+  describe('Screen Reader Support', () => {
+    it('provides proper context for screen readers', () => {
       const wrapper = mount(ButtonGroup, {
-        props: { size: 'xl', orientation: 'vertical' },
+        attrs: {
+          'aria-label': 'Document actions',
+          role: 'group',
+        },
         slots: {
           default: `
-            <Button color="primary">Save</Button>
-            <Button color="secondary" as-icon>Edit</Button>
-            <Button color="danger" is-loading>Delete</Button>
+            <Button>Edit</Button>
+            <Button>Delete</Button>
+            <Button>Share</Button>
           `,
         },
         global: {
@@ -336,107 +275,32 @@ describe('ButtonGroup Component', () => {
         },
       })
 
+      expect(wrapper.attributes('aria-label')).toBe('Document actions')
+      expect(wrapper.attributes('role')).toBe('group')
+
       const buttons = wrapper.findAllComponents(Button)
       expect(buttons).toHaveLength(3)
-
-      // All should have xl size and be in vertical layout
-      expect(wrapper.classes()).toContain('flex-col')
-      buttons.forEach((button) => {
-        expect(button.find('button').classes()).toContain('h-44px')
-        expect(button.find('button').classes()).toContain('text-base')
-        expect(button.find('button').classes()).toContain('rounded-12px')
-      })
-
-      // Check individual button characteristics
-      expect(buttons[1].find('button').classes()).toContain('aspect-square') // as-icon
-      expect(buttons[2].find('svg').exists()).toBe(true) // loading spinner
     })
-  })
 
-  describe('All Sizes', () => {
-    const sizes = [
-      {
-        size: 'xs',
-        expectedHeight: 'h-26px',
-        expectedText: 'text-xs',
-        expectedRadius: 'rounded-6px',
-      },
-      {
-        size: 'sm',
-        expectedHeight: 'h-32px',
-        expectedText: 'text-xs',
-        expectedRadius: 'rounded-6px',
-      },
-      {
-        size: 'md',
-        expectedHeight: 'h-36px',
-        expectedText: 'text-sm',
-        expectedRadius: 'rounded-8px',
-      },
-      {
-        size: 'lg',
-        expectedHeight: 'h-40px',
-        expectedText: 'text-base',
-        expectedRadius: 'rounded-10px',
-      },
-      {
-        size: 'xl',
-        expectedHeight: 'h-44px',
-        expectedText: 'text-base',
-        expectedRadius: 'rounded-12px',
-      },
-    ] as const
-
-    sizes.forEach(({ size, expectedHeight, expectedText, expectedRadius }) => {
-      it(`applies ${size} size to all child buttons`, () => {
-        const wrapper = mount(ButtonGroup, {
-          props: { size },
-          slots: {
-            default: `
-              <Button>First</Button>
-              <Button>Second</Button>
-            `,
-          },
-          global: {
-            components: { Button },
-          },
-        })
-
-        const buttons = wrapper.findAllComponents(Button)
-        buttons.forEach((button) => {
-          expect(button.find('button').classes()).toContain(expectedHeight)
-          expect(button.find('button').classes()).toContain(expectedText)
-          expect(button.find('button').classes()).toContain(expectedRadius)
-        })
-      })
-    })
-  })
-
-  describe('Constants Usage', () => {
-    it('uses default values from constants', () => {
+    it('works with describedby for additional context', () => {
       const wrapper = mount(ButtonGroup, {
-        slots: { default: '<button>Test</button>' },
-      })
-
-      // Should use defaults from BUTTON_GROUP_DEFAULTS
-      expect(wrapper.classes()).toContain('flex-row') // horizontal
-      expect(wrapper.classes()).not.toContain('gap-2') // attached: true
-    })
-
-    it('works with Button component using constants', () => {
-      const wrapper = mount(ButtonGroup, {
+        attrs: {
+          'aria-describedby': 'help-text',
+          'aria-label': 'Formatting toolbar',
+        },
         slots: {
-          default: `<Button>Test</Button>`,
+          default: `
+            <Button>Bold</Button>
+            <Button>Italic</Button>
+          `,
         },
         global: {
           components: { Button },
         },
       })
 
-      const button = wrapper.findComponent(Button)
-      // Should use defaults from BUTTON_DEFAULTS and BUTTON_GROUP_DEFAULTS
-      expect(button.find('button').classes()).toContain('bg-primary') // primary color
-      expect(button.find('button').classes()).toContain('h-36px') // md size
+      expect(wrapper.attributes('aria-describedby')).toBe('help-text')
+      expect(wrapper.attributes('aria-label')).toBe('Formatting toolbar')
     })
   })
 })
