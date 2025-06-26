@@ -2,17 +2,14 @@
 import { Icon } from '@iconify/vue'
 import { tv } from 'tailwind-variants'
 import { computed, inject } from 'vue'
-import {
-  BUTTON_DEFAULTS,
-  type ButtonSize,
-} from './constants'
 import { BUTTON_GROUP_SIZE_KEY } from '../button-group/constants'
+import { type ButtonSize } from './constants'
 
 /**
  * Button component with multiple variants, colors, and sizes
  * Supports loading states and icon-only buttons
  */
-interface ButtonProps {
+export interface ButtonProps {
   /** Button color theme */
   color?: 'primary' | 'secondary' | 'danger'
   /** Button visual style */
@@ -26,11 +23,11 @@ interface ButtonProps {
 }
 
 const {
-  color = BUTTON_DEFAULTS.color,
-  variant = BUTTON_DEFAULTS.variant,
+  color = 'primary',
+  variant = 'filled',
   size: propSize,
-  isLoading = BUTTON_DEFAULTS.isLoading,
-  asIcon = BUTTON_DEFAULTS.asIcon,
+  isLoading = false,
+  asIcon = false,
 } = defineProps<ButtonProps>()
 
 // Inject size from ButtonGroup if available using symbols
@@ -38,7 +35,7 @@ const buttonGroupSize = inject(BUTTON_GROUP_SIZE_KEY, null)
 
 // Use group size if available, otherwise use prop size, otherwise default
 const size = computed<ButtonSize>(
-  () => buttonGroupSize || propSize || BUTTON_DEFAULTS.size,
+  () => buttonGroupSize || propSize || 'md',
 )
 
 const buttonStyle = tv({

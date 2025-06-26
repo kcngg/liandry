@@ -3,7 +3,6 @@ import { tv } from 'tailwind-variants'
 import { provide } from 'vue'
 import {
   BUTTON_GROUP_CONTEXT_KEY,
-  BUTTON_GROUP_DEFAULTS,
   BUTTON_GROUP_SIZE_KEY,
   type ButtonSize,
 } from './constants'
@@ -12,7 +11,7 @@ import {
  * ButtonGroup component that groups buttons together
  * Automatically injects size into child buttons and adjusts border radius
  */
-interface ButtonGroupProps {
+export interface ButtonGroupProps {
   /** Button group size - applies to all child buttons */
   size?: ButtonSize
   /** Group orientation */
@@ -22,9 +21,9 @@ interface ButtonGroupProps {
 }
 
 const {
-  size = BUTTON_GROUP_DEFAULTS.size,
-  orientation = BUTTON_GROUP_DEFAULTS.orientation,
-  attached = BUTTON_GROUP_DEFAULTS.attached,
+  size = 'md',
+  orientation = 'horizontal',
+  attached = true,
 } = defineProps<ButtonGroupProps>()
 
 // Provide size to child Button components using symbols
