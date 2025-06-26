@@ -173,7 +173,6 @@ const getLoaderSize = (size: string) => {
     <Icon
       v-if="isLoading"
       icon="svg-spinners:bars-rotate-fade"
-      class="animate-spin"
       :class="[
         getLoaderSize(size),
         {

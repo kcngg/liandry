@@ -5,83 +5,10 @@ import Section from '@/components/layout/Section.vue'
 import Stack from '@/components/layout/Stack.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta<any> = {
+const meta: Meta = {
+  tags: ['autodocs'],
   component: Button,
   title: 'Components/Button',
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Un composant bouton polyvalent avec différentes couleurs, variantes de style et tailles utilisant Tailwind CSS.',
-      },
-    },
-  },
-  argTypes: {
-    color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'danger'],
-      description: 'La couleur du bouton',
-      defaultValue: 'primary',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'primary' },
-      },
-    },
-    variant: {
-      control: { type: 'select' },
-      options: ['filled', 'outline', 'ghost'],
-      description: 'La variante de style du bouton',
-      defaultValue: 'filled',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'filled' },
-      },
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
-      description: 'La taille du bouton',
-      defaultValue: 'md',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'md' },
-      },
-    },
-    isLoading: {
-      control: { type: 'boolean' },
-      description: 'État de chargement du bouton',
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    asIcon: {
-      control: { type: 'boolean' },
-      description: 'Bouton carré pour icône',
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    default: {
-      control: { type: 'text' },
-      description: 'Le contenu du bouton (slot par défaut)',
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-  },
-  args: {
-    color: 'primary',
-    variant: 'filled',
-    size: 'md',
-    isLoading: false,
-    asIcon: false,
-    default: 'Mon Bouton',
-  },
-  tags: ['autodocs'],
 }
 
 export default meta
