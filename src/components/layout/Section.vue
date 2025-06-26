@@ -33,6 +33,7 @@ const formatSpacing = (value: string | number) => {
         class="section-title"
         :style="{
           margin: 0,
+          color: 'white',
           fontWeight: level <= 2 ? '700' : level <= 4 ? '600' : '500',
           fontSize:
             level === 1
@@ -57,6 +58,7 @@ const formatSpacing = (value: string | number) => {
         class="section-subtitle"
         :style="{
           margin: title ? '0.25rem 0 0 0' : '0',
+          color: 'white',
           fontSize: '0.875rem',
           opacity: 0.7,
           lineHeight: '1.4',
