@@ -51,21 +51,13 @@ export const Basic: Story = {
     },
     template: `
       <DialogRoot>
-        <DialogTrigger>
+        <DialogTrigger as-child>
           <Button>Open dialog</Button>
         </DialogTrigger>
         <DialogPortal>
           <DialogOverlay />
           <DialogContent>
-            <Stack gap="4">
-              <DialogTitle>Dialog Title</DialogTitle>
-              <DialogDescription>
-                This is a description of the dialog. It provides additional context or information.
-              </DialogDescription>
-              <DialogClose>
-                Close
-              </DialogClose>
-            </Stack>
+           
           </DialogContent>
         </DialogPortal>
       </DialogRoot>
