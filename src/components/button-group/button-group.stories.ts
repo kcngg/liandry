@@ -26,6 +26,20 @@ const meta: Meta<typeof ButtonGroup> = {
       description: 'Whether buttons are attached (no gap) or separated',
     },
   },
+  subcomponents: { Button },
+  render: (args) => ({
+    components: { ButtonGroup, Button },
+    setup() {
+      return { args }
+    },
+    template: `
+      <ButtonGroup v-bind="args">
+        <Button>Button 1</Button>
+        <Button>Button 2</Button>
+        <Button>Button 3</Button>
+      </ButtonGroup>
+    `,
+  }),
 }
 
 export default meta
@@ -129,7 +143,7 @@ export const AllSizes: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Small (sm)" :level="4" spacing="0.5rem">
             <ButtonGroup size="sm">
@@ -139,7 +153,7 @@ export const AllSizes: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Medium (md)" :level="4" spacing="0.5rem">
             <ButtonGroup size="md">
@@ -149,7 +163,7 @@ export const AllSizes: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Large (lg)" :level="4" spacing="0.5rem">
             <ButtonGroup size="lg">
@@ -159,7 +173,7 @@ export const AllSizes: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Extra Large (xl)" :level="4" spacing="0.5rem">
             <ButtonGroup size="xl">
@@ -196,7 +210,7 @@ export const MixedVariants: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Secondary Colors" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">
@@ -206,7 +220,7 @@ export const MixedVariants: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Danger Colors" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">
@@ -244,7 +258,7 @@ export const IconButtons: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Mixed Icon & Text" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">
@@ -281,7 +295,7 @@ export const LoadingStates: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="All Loading" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">
@@ -338,7 +352,7 @@ export const FormActions: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Form Actions - With Gaps" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">
@@ -347,7 +361,7 @@ export const FormActions: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Destructive Actions" :level="4" spacing="0.5rem">
             <ButtonGroup :attached="true" v-bind="args">
@@ -384,7 +398,7 @@ export const Toolbar: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Alignment" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">
@@ -395,7 +409,7 @@ export const Toolbar: Story = {
             </ButtonGroup>
           </Section>
         </div>
-        
+
         <div>
           <Section title="Actions" :level="4" spacing="0.5rem">
             <ButtonGroup v-bind="args">

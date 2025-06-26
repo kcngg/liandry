@@ -20,6 +20,8 @@ export const Primary: Story = {
     variant: 'filled',
     size: 'md',
     default: 'Bouton Principal',
+    asIcon: false,
+    isLoading: false,
   },
   parameters: {
     docs: {

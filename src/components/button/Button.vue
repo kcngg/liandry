@@ -149,11 +149,11 @@ const getIconSize = (size: string) => {
  */
 const getLoaderSize = (size: string) => {
   const sizeMap = {
-    xs: 'size-3', // 12px
-    sm: 'size-4', // 16px
-    md: 'size-4', // 16px
-    lg: 'size-5', // 20px
-    xl: 'size-6', // 24px
+    xs: 'size-3',
+    sm: 'size-4',
+    md: 'size-4',
+    lg: 'size-5',
+    xl: 'size-6',
   }
   return sizeMap[size as keyof typeof sizeMap] || 'size-4'
 }

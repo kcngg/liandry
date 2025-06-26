@@ -76,6 +76,7 @@
     "lucide-vue-next": "^0.518.0",
     "prettier": "^3.5.3",
     "storybook": "^9.0.13",
+    "storybook-addon-vue-slots": "^0.9.29",
     "tailwind-variants": "^1.0.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
