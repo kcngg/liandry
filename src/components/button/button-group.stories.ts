@@ -1,5 +1,6 @@
 import Button from './Button.vue'
 import ButtonGroup from './ButtonGroup.vue'
+import Section from '@/components/layout/Section.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof ButtonGroup> = {
@@ -116,52 +117,57 @@ export const WithGaps: Story = {
 
 export const AllSizes: Story = {
   render: () => ({
-    components: { ButtonGroup, Button },
+    components: { ButtonGroup, Button, Section },
     template: `
       <div class="space-y-4">
         <div>
-          <h3 class="text-sm font-medium mb-2">Extra Small (xs)</h3>
-          <ButtonGroup size="xs">
-            <Button>Save</Button>
-            <Button>Cancel</Button>
-            <Button>Delete</Button>
-          </ButtonGroup>
+          <Section title="Extra Small (xs)" :level="4" spacing="0.5rem">
+            <ButtonGroup size="xs">
+              <Button>Save</Button>
+              <Button>Cancel</Button>
+              <Button>Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Small (sm)</h3>
-          <ButtonGroup size="sm">
-            <Button>Save</Button>
-            <Button>Cancel</Button>
-            <Button>Delete</Button>
-          </ButtonGroup>
+          <Section title="Small (sm)" :level="4" spacing="0.5rem">
+            <ButtonGroup size="sm">
+              <Button>Save</Button>
+              <Button>Cancel</Button>
+              <Button>Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Medium (md)</h3>
-          <ButtonGroup size="md">
-            <Button>Save</Button>
-            <Button>Cancel</Button>
-            <Button>Delete</Button>
-          </ButtonGroup>
+          <Section title="Medium (md)" :level="4" spacing="0.5rem">
+            <ButtonGroup size="md">
+              <Button>Save</Button>
+              <Button>Cancel</Button>
+              <Button>Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Large (lg)</h3>
-          <ButtonGroup size="lg">
-            <Button>Save</Button>
-            <Button>Cancel</Button>
-            <Button>Delete</Button>
-          </ButtonGroup>
+          <Section title="Large (lg)" :level="4" spacing="0.5rem">
+            <ButtonGroup size="lg">
+              <Button>Save</Button>
+              <Button>Cancel</Button>
+              <Button>Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Extra Large (xl)</h3>
-          <ButtonGroup size="xl">
-            <Button>Save</Button>
-            <Button>Cancel</Button>
-            <Button>Delete</Button>
-          </ButtonGroup>
+          <Section title="Extra Large (xl)" :level="4" spacing="0.5rem">
+            <ButtonGroup size="xl">
+              <Button>Save</Button>
+              <Button>Cancel</Button>
+              <Button>Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
       </div>
     `,
@@ -175,37 +181,40 @@ export const MixedVariants: Story = {
     attached: true,
   },
   render: (args) => ({
-    components: { ButtonGroup, Button },
+    components: { ButtonGroup, Button, Section },
     setup() {
       return { args }
     },
     template: `
       <div class="space-y-4">
         <div>
-          <h3 class="text-sm font-medium mb-2">Primary Colors</h3>
-          <ButtonGroup v-bind="args">
-            <Button variant="filled" color="primary">Filled</Button>
-            <Button variant="outline" color="primary">Outline</Button>
-            <Button variant="ghost" color="primary">Ghost</Button>
-          </ButtonGroup>
+          <Section title="Primary Colors" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button variant="filled" color="primary">Filled</Button>
+              <Button variant="outline" color="primary">Outline</Button>
+              <Button variant="ghost" color="primary">Ghost</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Secondary Colors</h3>
-          <ButtonGroup v-bind="args">
-            <Button variant="filled" color="secondary">Filled</Button>
-            <Button variant="outline" color="secondary">Outline</Button>
-            <Button variant="ghost" color="secondary">Ghost</Button>
-          </ButtonGroup>
+          <Section title="Secondary Colors" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button variant="filled" color="secondary">Filled</Button>
+              <Button variant="outline" color="secondary">Outline</Button>
+              <Button variant="ghost" color="secondary">Ghost</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Danger Colors</h3>
-          <ButtonGroup v-bind="args">
-            <Button variant="filled" color="danger">Filled</Button>
-            <Button variant="outline" color="danger">Outline</Button>
-            <Button variant="ghost" color="danger">Ghost</Button>
-          </ButtonGroup>
+          <Section title="Danger Colors" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button variant="filled" color="danger">Filled</Button>
+              <Button variant="outline" color="danger">Outline</Button>
+              <Button variant="ghost" color="danger">Ghost</Button>
+            </ButtonGroup>
+          </Section>
         </div>
       </div>
     `,
@@ -219,29 +228,31 @@ export const IconButtons: Story = {
     attached: true,
   },
   render: (args) => ({
-    components: { ButtonGroup, Button },
+    components: { ButtonGroup, Button, Section },
     setup() {
       return { args }
     },
     template: `
       <div class="space-y-4">
         <div>
-          <h3 class="text-sm font-medium mb-2">Icon Buttons</h3>
-          <ButtonGroup v-bind="args">
-            <Button as-icon>←</Button>
-            <Button as-icon>↑</Button>
-            <Button as-icon>↓</Button>
-            <Button as-icon>→</Button>
-          </ButtonGroup>
+          <Section title="Icon Buttons" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button as-icon>←</Button>
+              <Button as-icon>↑</Button>
+              <Button as-icon>↓</Button>
+              <Button as-icon>→</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Mixed Icon & Text</h3>
-          <ButtonGroup v-bind="args">
-            <Button as-icon>+</Button>
-            <Button>Add Item</Button>
-            <Button as-icon>×</Button>
-          </ButtonGroup>
+          <Section title="Mixed Icon & Text" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button as-icon>+</Button>
+              <Button>Add Item</Button>
+              <Button as-icon>×</Button>
+            </ButtonGroup>
+          </Section>
         </div>
       </div>
     `,
@@ -255,28 +266,30 @@ export const LoadingStates: Story = {
     attached: true,
   },
   render: (args) => ({
-    components: { ButtonGroup, Button },
+    components: { ButtonGroup, Button, Section },
     setup() {
       return { args }
     },
     template: `
       <div class="space-y-4">
         <div>
-          <h3 class="text-sm font-medium mb-2">Loading States</h3>
-          <ButtonGroup v-bind="args">
-            <Button>Normal</Button>
-            <Button is-loading>Loading</Button>
-            <Button>Normal</Button>
-          </ButtonGroup>
+          <Section title="Loading States" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button>Normal</Button>
+              <Button is-loading>Loading</Button>
+              <Button>Normal</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">All Loading</h3>
-          <ButtonGroup v-bind="args">
-            <Button is-loading>Save</Button>
-            <Button is-loading>Cancel</Button>
-            <Button is-loading>Delete</Button>
-          </ButtonGroup>
+          <Section title="All Loading" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button is-loading>Save</Button>
+              <Button is-loading>Cancel</Button>
+              <Button is-loading>Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
       </div>
     `,
@@ -311,34 +324,37 @@ export const FormActions: Story = {
     attached: false,
   },
   render: (args) => ({
-    components: { ButtonGroup, Button },
+    components: { ButtonGroup, Button, Section },
     setup() {
       return { args }
     },
     template: `
       <div class="space-y-6">
         <div>
-          <h3 class="text-sm font-medium mb-2">Form Actions - Attached</h3>
-          <ButtonGroup :attached="true" v-bind="args">
-            <Button variant="outline" color="secondary">Cancel</Button>
-            <Button variant="filled" color="primary">Save</Button>
-          </ButtonGroup>
+          <Section title="Form Actions - Attached" :level="4" spacing="0.5rem">
+            <ButtonGroup :attached="true" v-bind="args">
+              <Button variant="outline" color="secondary">Cancel</Button>
+              <Button variant="filled" color="primary">Save</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Form Actions - With Gaps</h3>
-          <ButtonGroup v-bind="args">
-            <Button variant="outline" color="secondary">Cancel</Button>
-            <Button variant="filled" color="primary">Save</Button>
-          </ButtonGroup>
+          <Section title="Form Actions - With Gaps" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button variant="outline" color="secondary">Cancel</Button>
+              <Button variant="filled" color="primary">Save</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Destructive Actions</h3>
-          <ButtonGroup :attached="true" v-bind="args">
-            <Button variant="outline" color="secondary">Cancel</Button>
-            <Button variant="filled" color="danger">Delete</Button>
-          </ButtonGroup>
+          <Section title="Destructive Actions" :level="4" spacing="0.5rem">
+            <ButtonGroup :attached="true" v-bind="args">
+              <Button variant="outline" color="secondary">Cancel</Button>
+              <Button variant="filled" color="danger">Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
       </div>
     `,
@@ -352,40 +368,43 @@ export const Toolbar: Story = {
     attached: true,
   },
   render: (args) => ({
-    components: { ButtonGroup, Button },
+    components: { ButtonGroup, Button, Section },
     setup() {
       return { args }
     },
     template: `
       <div class="space-y-4">
         <div>
-          <h3 class="text-sm font-medium mb-2">Text Formatting</h3>
-          <ButtonGroup v-bind="args">
-            <Button as-icon variant="outline">B</Button>
-            <Button as-icon variant="outline">I</Button>
-            <Button as-icon variant="outline">U</Button>
-            <Button as-icon variant="outline">S</Button>
-          </ButtonGroup>
+          <Section title="Text Formatting" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button as-icon variant="outline">B</Button>
+              <Button as-icon variant="outline">I</Button>
+              <Button as-icon variant="outline">U</Button>
+              <Button as-icon variant="outline">S</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Alignment</h3>
-          <ButtonGroup v-bind="args">
-            <Button as-icon variant="outline">⟵</Button>
-            <Button as-icon variant="outline">⟷</Button>
-            <Button as-icon variant="outline">⟶</Button>
-            <Button as-icon variant="outline">⟺</Button>
-          </ButtonGroup>
+          <Section title="Alignment" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button as-icon variant="outline">⟵</Button>
+              <Button as-icon variant="outline">⟷</Button>
+              <Button as-icon variant="outline">⟶</Button>
+              <Button as-icon variant="outline">⟺</Button>
+            </ButtonGroup>
+          </Section>
         </div>
         
         <div>
-          <h3 class="text-sm font-medium mb-2">Actions</h3>
-          <ButtonGroup v-bind="args">
-            <Button variant="outline">Copy</Button>
-            <Button variant="outline">Paste</Button>
-            <Button variant="outline">Cut</Button>
-            <Button variant="outline" color="danger">Delete</Button>
-          </ButtonGroup>
+          <Section title="Actions" :level="4" spacing="0.5rem">
+            <ButtonGroup v-bind="args">
+              <Button variant="outline">Copy</Button>
+              <Button variant="outline">Paste</Button>
+              <Button variant="outline">Cut</Button>
+              <Button variant="outline" color="danger">Delete</Button>
+            </ButtonGroup>
+          </Section>
         </div>
       </div>
     `,
