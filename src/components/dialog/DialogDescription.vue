@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { useForwardProps, type DialogDescriptionProps } from 'reka-ui'
+import {
+  DialogDescription,
+  useForwardProps,
+  type DialogDescriptionProps,
+} from 'reka-ui'
 
 const props = defineProps<DialogDescriptionProps>()
 </script>
