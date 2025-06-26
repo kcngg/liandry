@@ -4,9 +4,9 @@ import { tv } from 'tailwind-variants'
 import { computed, inject } from 'vue'
 import {
   BUTTON_DEFAULTS,
-  BUTTON_GROUP_SIZE_KEY,
   type ButtonSize,
 } from './constants'
+import { BUTTON_GROUP_SIZE_KEY } from '../button-group/constants'
 
 /**
  * Button component with multiple variants, colors, and sizes

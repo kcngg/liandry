@@ -1,5 +1,5 @@
 import Section from '@/components/layout/Section.vue'
-import Button from './Button.vue'
+import Button from '../button/Button.vue'
 import ButtonGroup from './ButtonGroup.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 

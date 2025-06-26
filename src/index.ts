@@ -1,5 +1,6 @@
 // Components
 export { default as Button } from './components/button/Button.vue'
+export { ButtonGroup } from './components/button-group'
 
 // Layout Components
 export { default as Stack } from './components/layout/Stack.vue'
