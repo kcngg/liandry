@@ -38,7 +38,7 @@ const size = computed<ButtonSize>(() => buttonGroupSize || propSize || 'md')
 
 const buttonStyle = tv({
   base:
-    'flex items-center justify-center ' +
+    'flex w-fit items-center justify-center ' +
     'font-400 ' +
     'disabled:opacity-75 disabled:cursor-not-allowed ' +
     'transition-colors duration-200 ease-in-out ' +
